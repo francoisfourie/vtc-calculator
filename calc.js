@@ -51,7 +51,7 @@ function calculateTransfer(event) {
             
             
 <hr/>
-            <table class="table table-striped">
+            <table class="table table-striped responsive-font-table">
         <tr>
         <td>Attorney Fees</td>
         <td  >R${numberWithCommas(af)}</td>
@@ -150,7 +150,7 @@ function calculateBondCosts(event) {
             </div>
             
 <hr/>
-            <table  class="table table-striped">
+            <table  class="table table-striped responsive-font-table">
         <tr>
         <td>Attorney Fees</td>
         <td  >R${numberWithCommas(af)}</td>
@@ -231,7 +231,7 @@ function calculateInstalments(event) {
             </div>
     
 <hr/>
-    <table class="table table-striped">
+    <table class="table table-striped responsive-font-table">
 <tr>
 <td>Pay-off time</td>
 <td>${numberWithCommas(Loan_Years.value)} Years</td>
@@ -288,6 +288,16 @@ function cleanScreen() {
 function openTab(evt, cityName) {
     // Declare all variables
     cleanScreen()
+// Get all buttons with class="nav-button" and remove the class "active"s
+    var buttons = document.getElementsByClassName("nav-button");
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("active");
+    }
+
+    // Add the "active" class to the clicked button
+    event.currentTarget.classList.add("active");
+
+
     var i, tabcontent, tablinks;
 
    $("#result").html("")

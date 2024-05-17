@@ -53,6 +53,15 @@
             border-color: #222e39;
         }
 
+        .btn-secondary:hover {
+            background-color: #2a3948; /* hover color */
+        }
+
+        .btn-secondary.active {
+            background-color: #222e39; /* same as original color */
+            border-color: #222e39;
+        }
+
         .bg-secondary {
             background-color: #222e39 !important;
         }
@@ -65,6 +74,27 @@
             max-width: calc(75% + 34px); /* Adjust the width as needed */
         }
 
+               /* Hide arrows in input of type number */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield; /* Firefox */
+        }
+
+     .responsive-font-table {
+            font-size: 14px; /* Default font size for larger screens */
+        }
+
+        @media (max-width: 600px) {
+            .responsive-font-table {
+                font-size: 10px; /* Font size for screens smaller than 600px */
+            }
+        }
+
     </style>
 
 </head>
@@ -74,7 +104,7 @@
 <div id="topbar" class="container-fluid bg-secondary justify-content-center align-items-center d-flex" style="padding: 20px;">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
-            <picture style="width: 20%;"> <!-- Adjusted width -->
+            <picture style="width: 30%;"> <!-- Adjusted width -->
                 <source srcset="https://veliletintocape.co.za/wp-content/uploads/2020/04/cropped-VTC-Logo-White.png" media="(min-width: 1200px)">
                 <source srcset="https://veliletintocape.co.za/wp-content/uploads/2020/04/cropped-VTC-Logo-White-1024x577.png" media="(min-width: 992px)">
                 <source srcset="https://veliletintocape.co.za/wp-content/uploads/2020/04/cropped-VTC-Logo-White-768x432.png" media="(min-width: 768px)">
@@ -93,31 +123,31 @@
 
     </div>
 
-    <div >
+    <div>
         <!-- Tab links -->
         <div class="tab">
             <button class="btn btn-secondary nav-button" onclick="openTab(event, 'TransferCalculator')" style="max-width: 200px; display: flex; flex-direction: column; align-items: center;">
-                <i class="fas fa-exchange-alt" style="font-size: 1.5em;"></i>
-                <span style="font-size: 0.8em;">Transfer Costs</span>
+                <i class="fas fa-exchange-alt" style="font-size: 0.8em;"></i>
+                <span style="font-size: 0.5em;">Transfer Costs</span>
             </button>
             <button class="btn btn-secondary nav-button" onclick="openTab(event, 'BondCalculator')" style="max-width: 200px; display: flex; flex-direction: column; align-items: center;">
-                <i class="fas fa-handshake" style="font-size: 1.5em;"></i>
-                <span style="font-size: 0.8em;">Bond Costs</span>
+                <i class="fas fa-handshake" style="font-size: 0.8em;"></i>
+                <span style="font-size: 0.5em;">Bond Costs</span>
             </button>
             <button class="btn btn-secondary nav-button" onclick="openTab(event, 'installments')" style="max-width: 200px; display: flex; flex-direction: column; align-items: center;">
-                <i class="fas fa-money-bill-wave" style="font-size: 1.5em;"></i>
-                <span style="font-size: 0.8em;">Bond Instalments</span>
+                <i class="fas fa-money-bill-wave" style="font-size: 0.8em;"></i>
+                <span style="font-size: 0.5em;">Bond Instalments</span>
             </button>
         </div>
     </div>
 
-    <div class="content light-border">
+    <div class="light-border">
 
         <div id="liveAlertPlaceholder"></div>
         <!-- Tab content -->
         <div id="TransferCalculator" class="tabcontent" style="display: block;">
             <div class="form-header bg-secondary text-white py-2 px-3 rounded" style="margin-bottom: 10px;">
-                <h2 class="h4 m-0">Transfer Costs</h2>
+                <h2 class="h6 m-0">Transfer Costs</h2>
             </div>
             <form class="bondcalc" onsubmit="calculateTransfer(event)">
                 <div class="form-group half-width-input">
@@ -129,16 +159,18 @@
                         <input id="amntt" type="number" class="form-control number-separator" data-a-sign="" data-a-dec="," data-a-sep="." required placeholder="Transfer Amount">
                     </div>
                 </div>
-                <button class="btn btn-secondary" type="submit">
-                    Calculate
-                    <i class="fas fa-calculator ml-1"></i>
-                </button>
+                <div style="text-align: right;">
+                    <button class="btn btn-secondary" type="submit">
+                        Calculate
+                        <i class="fas fa-calculator ml-1"></i>
+                    </button>
+                </div>
             </form>
         </div>
 
         <div id="BondCalculator" class="tabcontent" style="display: none;">
             <div class="form-header bg-secondary text-white py-2 px-3 rounded" style="margin-bottom: 10px;">
-                <h2 class="h4 m-0">Bond Costs</h2>
+                <h2 class="h6 m-0">Bond Costs</h2>
             </div>
             <form class="bondcalc" onsubmit="calculateBondCosts(event)">
                 <div class="form-group half-width-input">
@@ -150,16 +182,18 @@
                         <input id="amnt" type="number" class="form-control number-separator" data-a-sign="" data-a-dec="," data-a-sep="." required placeholder="Bond Amount">
                     </div>
                 </div>
-                <button class="btn btn-secondary" type="submit">
-                    Calculate
-                    <i class="fas fa-calculator ml-1"></i>
-                </button>
+                <div style="text-align: right;">
+                    <button class="btn btn-secondary" type="submit">
+                        Calculate
+                        <i class="fas fa-calculator ml-1"></i>
+                    </button>
+                </div>
             </form>
         </div>
 
         <div id="installments" class="tabcontent" style="display: none;">
             <div class="form-header bg-secondary text-white py-2 px-3 rounded" style="margin-bottom: 10px;">
-                <h2 class="h4 m-0">Monthly Instalments</h2>
+                <h2 class="h6 m-0">Monthly Instalments</h2>
             </div>
             <form class="bondcalc" onsubmit="calculateInstalments(event)">
                 <div class="form-group half-width-input">
@@ -186,18 +220,20 @@
                         <input id="Loan_Term" type="number" class="form-control" required placeholder="Loan Term (Years)">
                     </div>
                 </div>
-                <button class="btn btn-secondary">
-                    Calculate
-                    <i class="fas fa-calculator ml-1"></i>
-                </button>
+                <div style="text-align: right;">
+                    <button class="btn btn-secondary" type="submit">
+                        Calculate
+                        <i class="fas fa-calculator ml-1"></i>
+                    </button>
+                </div>
             </form>
         </div>
 
         <div id="showResult" class="container">
             <div id="result" class=""  ></div>
-            <p class="text-warning explanation" style="font-size: smaller; font-style: italic;">
+            <!-- <p class="text-warning explanation" style="font-size: smaller; font-style: italic;">
                 <i>*Please take note all amounts stipulated are only estimates and are subject to approval</i>
-            </p>
+            </p> -->
             <p class="text-warning explanation" style="font-size: smaller; font-style: italic;">
                 <i>*Fees are subject to change, a final quotation can be requested from our office. Please contact info@vtb.co.za</i>
             </p>
