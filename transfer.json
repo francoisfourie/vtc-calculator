@@ -1,0 +1,2319 @@
+[
+    {
+      "price": 100000,
+      "fee": 5710,
+      "vat": 856.5,
+      "dutyOffice": 43,
+      "transferduty": 0
+    },
+    {
+      "price": 100000.01,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 105000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 110000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 115000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 120000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 125000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 125000.01,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 130000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 135000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 140000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 145000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 150000,
+      "fee": 6620,
+      "vat": 993,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 150000.01,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 155000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 160000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 165000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 170000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 175000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 175000.01,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 180000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 185000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 190000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 195000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 200000,
+      "fee": 7530,
+      "vat": 1129.5,
+      "dutyOffice": 96,
+      "transferduty": 0
+    },
+    {
+      "price": 200000.01,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 205000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 210000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 215000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 220000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 225000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 230000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 235000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 240000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 245000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 250000,
+      "fee": 8440,
+      "vat": 1266,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 250000.01,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 260000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 270000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 275000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 290000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 300000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 606,
+      "transferduty": 0
+    },
+    {
+      "price": 300000.01,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 310000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 320000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 330000,
+      "fee": 9350,
+      "vat": 1402.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 340000,
+      "fee": 10260,
+      "vat": 1539,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 350000,
+      "fee": 10260,
+      "vat": 1539,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 350000.01,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 360000,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 370000,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 380000,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 390000,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 400000,
+      "fee": 11170,
+      "vat": 1675.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 400000.01,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 410000,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 420000,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 430000,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 440000,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 450000,
+      "fee": 12080,
+      "vat": 1812,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 450000.01,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 460000,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 470000,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 480000,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 490000,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 500000,
+      "fee": 12990,
+      "vat": 1948.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 500000.01,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 510000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 520000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 530000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 540000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 550000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 560000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 570000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 580000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 590000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 600000,
+      "fee": 14750,
+      "vat": 2212.5,
+      "dutyOffice": 755,
+      "transferduty": 0
+    },
+    {
+      "price": 600000.01,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 610000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 620000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 630000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 640000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 650000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 660000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 670000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 680000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 690000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 700000,
+      "fee": 16510,
+      "vat": 2476.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 710000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 710000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 720000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 730000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 740000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 750000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 760000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 770000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 780000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 790000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 800000,
+      "fee": 18270,
+      "vat": 2740.5,
+      "dutyOffice": 1063,
+      "transferduty": 0
+    },
+    {
+      "price": 800000.01,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 810000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 820000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 830000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 840000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 850000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 910000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 870000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 880000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 890000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 900000,
+      "fee": 20030,
+      "vat": 3004.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 900000.01,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 910000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 920000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 930000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 940000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 950000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 960000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 970000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 980000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 990000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 1000000,
+      "fee": 21790,
+      "vat": 3268.5,
+      "dutyOffice": 1220,
+      "transferduty": 0
+    },
+    {
+      "price": 1000000.01,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 0
+    },
+    {
+      "price": 1050000,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 1500
+    },
+    {
+      "price": 1100000,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 3000
+    },
+    {
+      "price": 1100000.01,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 3000
+    },
+    {
+      "price": 1150000,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 4500
+    },
+    {
+      "price": 1200000,
+      "fee": 23550,
+      "vat": 3532.5,
+      "dutyOffice": 1371,
+      "transferduty": 6000
+    },
+    {
+      "price": 1200000.01,
+      "fee": 25310,
+      "vat": 3796.5,
+      "dutyOffice": 1371,
+      "transferduty": 6000
+    },
+    {
+      "price": 1250000,
+      "fee": 25310,
+      "vat": 3796.5,
+      "dutyOffice": 1371,
+      "transferduty": 7500
+    },
+    {
+      "price": 1300000,
+      "fee": 25310,
+      "vat": 3796.5,
+      "dutyOffice": 1371,
+      "transferduty": 9000
+    },
+    {
+      "price": 1300000.01,
+      "fee": 25310,
+      "vat": 3796.5,
+      "dutyOffice": 1371,
+      "transferduty": 9000
+    },
+    {
+      "price": 1400000,
+      "fee": 25310,
+      "vat": 3796.5,
+      "dutyOffice": 1371,
+      "transferduty": 12750
+    },
+    {
+      "price": 1400000.01,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 12750
+    },
+    {
+      "price": 1450000,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 15750
+    },
+    {
+      "price": 1500000,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 18750
+    },
+    {
+      "price": 1500000.01,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 18750
+    },
+    {
+      "price": 1550000,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 21750
+    },
+    {
+      "price": 1600000,
+      "fee": 27070,
+      "vat": 4060.5,
+      "dutyOffice": 1371,
+      "transferduty": 24750
+    },
+    {
+      "price": 1600000.01,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 24750
+    },
+    {
+      "price": 1650000,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 27750
+    },
+    {
+      "price": 1700000,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 30750
+    },
+    {
+      "price": 1700000.01,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 30750
+    },
+    {
+      "price": 1750000,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 33750
+    },
+    {
+      "price": 1800000,
+      "fee": 28830,
+      "vat": 4324.5,
+      "dutyOffice": 1371,
+      "transferduty": 36750
+    },
+    {
+      "price": 1800000.01,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 36750
+    },
+    {
+      "price": 1850000,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 39750
+    },
+    {
+      "price": 1900000,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 42750
+    },
+    {
+      "price": 1900000.01,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 42750
+    },
+    {
+      "price": 1950000,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 46250
+    },
+    {
+      "price": 2000000,
+      "fee": 30590,
+      "vat": 4588.5,
+      "dutyOffice": 1371,
+      "transferduty": 50250
+    },
+    {
+      "price": 2000000.01,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 50250
+    },
+    {
+      "price": 2050000,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 54250
+    },
+    {
+      "price": 2100000,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 58250
+    },
+    {
+      "price": 2100000.01,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 58250
+    },
+    {
+      "price": 2150000,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 62250
+    },
+    {
+      "price": 2200000,
+      "fee": 32350,
+      "vat": 4852.5,
+      "dutyOffice": 1900,
+      "transferduty": 66250
+    },
+    {
+      "price": 2200000.01,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 66250
+    },
+    {
+      "price": 2250000,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 70250
+    },
+    {
+      "price": 2300000,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 74250
+    },
+    {
+      "price": 2300000.01,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 74250
+    },
+    {
+      "price": 2350000,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 78250
+    },
+    {
+      "price": 2400000,
+      "fee": 34110,
+      "vat": 5116.5,
+      "dutyOffice": 1900,
+      "transferduty": 82250
+    },
+    {
+      "price": 2400000.01,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 82250
+    },
+    {
+      "price": 2450000,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 86250
+    },
+    {
+      "price": 2500000,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 91000
+    },
+    {
+      "price": 2500000.01,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 91000
+    },
+    {
+      "price": 2550000,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 96500
+    },
+    {
+      "price": 2600000,
+      "fee": 35870,
+      "vat": 5380.5,
+      "dutyOffice": 1900,
+      "transferduty": 102000
+    },
+    {
+      "price": 2600000.01,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 102000
+    },
+    {
+      "price": 2650000,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 107500
+    },
+    {
+      "price": 2700000,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 113000
+    },
+    {
+      "price": 2700000.01,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 113000
+    },
+    {
+      "price": 2750000,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 118500
+    },
+    {
+      "price": 2800000,
+      "fee": 37630,
+      "vat": 5644.5,
+      "dutyOffice": 1900,
+      "transferduty": 124000
+    },
+    {
+      "price": 2800000.01,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 124000
+    },
+    {
+      "price": 2850000,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 129500
+    },
+    {
+      "price": 2900000,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 135000
+    },
+    {
+      "price": 2900000.01,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 135000
+    },
+    {
+      "price": 2950000,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 140500
+    },
+    {
+      "price": 3000000,
+      "fee": 39390,
+      "vat": 5908.5,
+      "dutyOffice": 1900,
+      "transferduty": 146000
+    },
+    {
+      "price": 3100000,
+      "fee": 41150,
+      "vat": 6172.5,
+      "dutyOffice": 1900,
+      "transferduty": 157000
+    },
+    {
+      "price": 3100000.01,
+      "fee": 41150,
+      "vat": 6172.5,
+      "dutyOffice": 1900,
+      "transferduty": 157000
+    },
+    {
+      "price": 3200000,
+      "fee": 41150,
+      "vat": 6172.5,
+      "dutyOffice": 1900,
+      "transferduty": 168000
+    },
+    {
+      "price": 3200000.01,
+      "fee": 42910,
+      "vat": 6436.5,
+      "dutyOffice": 1900,
+      "transferduty": 168000
+    },
+    {
+      "price": 3300000,
+      "fee": 42910,
+      "vat": 6436.5,
+      "dutyOffice": 1900,
+      "transferduty": 179000
+    },
+    {
+      "price": 3300000.01,
+      "fee": 42910,
+      "vat": 6436.5,
+      "dutyOffice": 1900,
+      "transferduty": 179000
+    },
+    {
+      "price": 3400000,
+      "fee": 42910,
+      "vat": 6436.5,
+      "dutyOffice": 1900,
+      "transferduty": 190000
+    },
+    {
+      "price": 3400000.01,
+      "fee": 44670,
+      "vat": 6700.5,
+      "dutyOffice": 1900,
+      "transferduty": 190000
+    },
+    {
+      "price": 3500000,
+      "fee": 44670,
+      "vat": 6700.5,
+      "dutyOffice": 1900,
+      "transferduty": 201000
+    },
+    {
+      "price": 3500000.01,
+      "fee": 44670,
+      "vat": 6700.5,
+      "dutyOffice": 1900,
+      "transferduty": 201000
+    },
+    {
+      "price": 3600000,
+      "fee": 44670,
+      "vat": 6700.5,
+      "dutyOffice": 1900,
+      "transferduty": 212000
+    },
+    {
+      "price": 3600000.01,
+      "fee": 46430,
+      "vat": 6964.5,
+      "dutyOffice": 1900,
+      "transferduty": 212000
+    },
+    {
+      "price": 3700000,
+      "fee": 46430,
+      "vat": 6964.5,
+      "dutyOffice": 1900,
+      "transferduty": 223000
+    },
+    {
+      "price": 3700000.01,
+      "fee": 46430,
+      "vat": 6964.5,
+      "dutyOffice": 1900,
+      "transferduty": 223000
+    },
+    {
+      "price": 3800000,
+      "fee": 46430,
+      "vat": 6964.5,
+      "dutyOffice": 1900,
+      "transferduty": 234000
+    },
+    {
+      "price": 3800000.01,
+      "fee": 48190,
+      "vat": 7228.5,
+      "dutyOffice": 1900,
+      "transferduty": 234000
+    },
+    {
+      "price": 3900000,
+      "fee": 48190,
+      "vat": 7228.5,
+      "dutyOffice": 1900,
+      "transferduty": 245000
+    },
+    {
+      "price": 3900000.01,
+      "fee": 48190,
+      "vat": 7228.5,
+      "dutyOffice": 1900,
+      "transferduty": 245000
+    },
+    {
+      "price": 4000000,
+      "fee": 48190,
+      "vat": 7228.5,
+      "dutyOffice": 1900,
+      "transferduty": 256000
+    },
+    {
+      "price": 4000000.01,
+      "fee": 49950,
+      "vat": 7492.5,
+      "dutyOffice": 2305,
+      "transferduty": 256000
+    },
+    {
+      "price": 4100000,
+      "fee": 49950,
+      "vat": 7492.5,
+      "dutyOffice": 2305,
+      "transferduty": 267000
+    },
+    {
+      "price": 4100000.01,
+      "fee": 49950,
+      "vat": 7492.5,
+      "dutyOffice": 2305,
+      "transferduty": 267000
+    },
+    {
+      "price": 4200000,
+      "fee": 49950,
+      "vat": 7492.5,
+      "dutyOffice": 2305,
+      "transferduty": 278000
+    },
+    {
+      "price": 4200000.01,
+      "fee": 51710,
+      "vat": 7756.5,
+      "dutyOffice": 2305,
+      "transferduty": 278000
+    },
+    {
+      "price": 4300000,
+      "fee": 51710,
+      "vat": 7756.5,
+      "dutyOffice": 2305,
+      "transferduty": 289000
+    },
+    {
+      "price": 4300000.01,
+      "fee": 51710,
+      "vat": 7756.5,
+      "dutyOffice": 2305,
+      "transferduty": 289000
+    },
+    {
+      "price": 4400000,
+      "fee": 51710,
+      "vat": 7756.5,
+      "dutyOffice": 2305,
+      "transferduty": 300000
+    },
+    {
+      "price": 4400000.01,
+      "fee": 53470,
+      "vat": 8020.5,
+      "dutyOffice": 2305,
+      "transferduty": 300000
+    },
+    {
+      "price": 4500000,
+      "fee": 53470,
+      "vat": 8020.5,
+      "dutyOffice": 2305,
+      "transferduty": 311000
+    },
+    {
+      "price": 4500000.01,
+      "fee": 53470,
+      "vat": 8020.5,
+      "dutyOffice": 2305,
+      "transferduty": 311000
+    },
+    {
+      "price": 4600000,
+      "fee": 53470,
+      "vat": 8020.5,
+      "dutyOffice": 2305,
+      "transferduty": 322000
+    },
+    {
+      "price": 4600000.01,
+      "fee": 55230,
+      "vat": 8284.5,
+      "dutyOffice": 2305,
+      "transferduty": 322000
+    },
+    {
+      "price": 4700000,
+      "fee": 55230,
+      "vat": 8284.5,
+      "dutyOffice": 2305,
+      "transferduty": 333000
+    },
+    {
+      "price": 4700000.01,
+      "fee": 55230,
+      "vat": 8284.5,
+      "dutyOffice": 2305,
+      "transferduty": 333000
+    },
+    {
+      "price": 4800000,
+      "fee": 55230,
+      "vat": 8284.5,
+      "dutyOffice": 2305,
+      "transferduty": 344000
+    },
+    {
+      "price": 4800000.01,
+      "fee": 56990,
+      "vat": 8548.5,
+      "dutyOffice": 2305,
+      "transferduty": 344000
+    },
+    {
+      "price": 4900000,
+      "fee": 56990,
+      "vat": 8548.5,
+      "dutyOffice": 2305,
+      "transferduty": 355000
+    },
+    {
+      "price": 4900000.01,
+      "fee": 56990,
+      "vat": 8548.5,
+      "dutyOffice": 2305,
+      "transferduty": 355000
+    },
+    {
+      "price": 5000000,
+      "fee": 56990,
+      "vat": 8548.5,
+      "dutyOffice": 2305,
+      "transferduty": 366000
+    },
+    {
+      "price": 5000000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 366000
+    },
+    {
+      "price": 5100000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 377000
+    },
+    {
+      "price": 5100000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 377000
+    },
+    {
+      "price": 5200000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 388000
+    },
+    {
+      "price": 5200000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 388000
+    },
+    {
+      "price": 5300000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 399000
+    },
+    {
+      "price": 5300000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 399000
+    },
+    {
+      "price": 5400000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 410000
+    },
+    {
+      "price": 5400000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 410000
+    },
+    {
+      "price": 5500000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 421000
+    },
+    {
+      "price": 5500000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 421000
+    },
+    {
+      "price": 5600000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 432000
+    },
+    {
+      "price": 5600000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 432000
+    },
+    {
+      "price": 5700000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 443000
+    },
+    {
+      "price": 5700000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 443000
+    },
+    {
+      "price": 5800000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 454000
+    },
+    {
+      "price": 5800000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 454000
+    },
+    {
+      "price": 5900000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 465000
+    },
+    {
+      "price": 5900000.01,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 465000
+    },
+    {
+      "price": 6000000,
+      "fee": 61430,
+      "vat": 9214.5,
+      "dutyOffice": 2305,
+      "transferduty": 476000
+    },
+    {
+      "price": 6000000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 476000
+    },
+    {
+      "price": 6100000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 487000
+    },
+    {
+      "price": 6100000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 487000
+    },
+    {
+      "price": 6200000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 498000
+    },
+    {
+      "price": 6200000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 498000
+    },
+    {
+      "price": 6300000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 509000
+    },
+    {
+      "price": 6300000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 509000
+    },
+    {
+      "price": 6400000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 520000
+    },
+    {
+      "price": 6400000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 520000
+    },
+    {
+      "price": 6500000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 531000
+    },
+    {
+      "price": 6500000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 531000
+    },
+    {
+      "price": 6600000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 542000
+    },
+    {
+      "price": 6600000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 542000
+    },
+    {
+      "price": 6700000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 553000
+    },
+    {
+      "price": 6700000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 553000
+    },
+    {
+      "price": 6800000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 564000
+    },
+    {
+      "price": 6800000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 564000
+    },
+    {
+      "price": 6900000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 575000
+    },
+    {
+      "price": 6900000.01,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 575000
+    },
+    {
+      "price": 7000000,
+      "fee": 65870,
+      "vat": 9880.5,
+      "dutyOffice": 2745,
+      "transferduty": 586000
+    },
+    {
+      "price": 7000000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 586000
+    },
+    {
+      "price": 7100000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 597000
+    },
+    {
+      "price": 7100000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 597000
+    },
+    {
+      "price": 7200000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 608000
+    },
+    {
+      "price": 7200000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 608000
+    },
+    {
+      "price": 7300000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 619000
+    },
+    {
+      "price": 7300000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 619000
+    },
+    {
+      "price": 7400000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 630000
+    },
+    {
+      "price": 7400000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 630000
+    },
+    {
+      "price": 7500000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 641000
+    },
+    {
+      "price": 7500000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 641000
+    },
+    {
+      "price": 7600000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 652000
+    },
+    {
+      "price": 7600000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 652000
+    },
+    {
+      "price": 7700000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 663000
+    },
+    {
+      "price": 7700000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 663000
+    },
+    {
+      "price": 7800000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 674000
+    },
+    {
+      "price": 7800000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 674000
+    },
+    {
+      "price": 7900000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 685000
+    },
+    {
+      "price": 7900000.01,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 685000
+    },
+    {
+      "price": 8000000,
+      "fee": 70310,
+      "vat": 10546.5,
+      "dutyOffice": 2745,
+      "transferduty": 696000
+    },
+    {
+      "price": 8000000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 696000
+    },
+    {
+      "price": 8100000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 707000
+    },
+    {
+      "price": 8100000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 707000
+    },
+    {
+      "price": 8200000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 718000
+    },
+    {
+      "price": 8200000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 718000
+    },
+    {
+      "price": 8300000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 729000
+    },
+    {
+      "price": 8300000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 729000
+    },
+    {
+      "price": 8400000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 740000
+    },
+    {
+      "price": 8400000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 740000
+    },
+    {
+      "price": 8500000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 751000
+    },
+    {
+      "price": 8500000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 751000
+    },
+    {
+      "price": 8600000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 762000
+    },
+    {
+      "price": 8600000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 762000
+    },
+    {
+      "price": 8700000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 773000
+    },
+    {
+      "price": 8700000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 773000
+    },
+    {
+      "price": 8800000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 784000
+    },
+    {
+      "price": 8800000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 784000
+    },
+    {
+      "price": 8900000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 795000
+    },
+    {
+      "price": 8900000.01,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 795000
+    },
+    {
+      "price": 9000000,
+      "fee": 74750,
+      "vat": 11212.5,
+      "dutyOffice": 3209,
+      "transferduty": 806000
+    },
+    {
+      "price": 9000000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 806000
+    },
+    {
+      "price": 9100000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 817000
+    },
+    {
+      "price": 9100000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 817000
+    },
+    {
+      "price": 9200000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 828000
+    },
+    {
+      "price": 9200000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 828000
+    },
+    {
+      "price": 9300000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 839000
+    },
+    {
+      "price": 9300000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 839000
+    },
+    {
+      "price": 9400000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 850000
+    },
+    {
+      "price": 9400000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 850000
+    },
+    {
+      "price": 9500000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 861000
+    },
+    {
+      "price": 9500000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 861000
+    },
+    {
+      "price": 9600000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 872000
+    },
+    {
+      "price": 9600000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 872000
+    },
+    {
+      "price": 9700000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 883000
+    },
+    {
+      "price": 9700000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 883000
+    },
+    {
+      "price": 9800000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 894000
+    },
+    {
+      "price": 9800000.01,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 894000
+    },
+    {
+      "price": 9900000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 905000
+    },
+    {
+      "price": 10000000,
+      "fee": 79190,
+      "vat": 11878.5,
+      "dutyOffice": 3209,
+      "transferduty": 916000
+    },
+    {
+      "price": 11000000,
+      "fee": 83630,
+      "vat": 12544.5,
+      "dutyOffice": 3819,
+      "transferduty": 1026000
+    },
+    {
+      "price": 12000000,
+      "fee": 88070,
+      "vat": 13210.5,
+      "dutyOffice": 3819,
+      "transferduty": 1156000
+    },
+    {
+      "price": 13000000,
+      "fee": 92510,
+      "vat": 13876.5,
+      "dutyOffice": 3819,
+      "transferduty": 1286000
+    },
+    {
+      "price": 14000000,
+      "fee": 96950,
+      "vat": 14542.5,
+      "dutyOffice": 3819,
+      "transferduty": 1416000
+    },
+    {
+      "price": 15000000,
+      "fee": 101390,
+      "vat": 15208.5,
+      "dutyOffice": 3819,
+      "transferduty": 1546000
+    },
+    {
+      "price": 16000000,
+      "fee": 105830,
+      "vat": 15874.5,
+      "dutyOffice": 4588,
+      "transferduty": 1676000
+    },
+    {
+      "price": 17000000,
+      "fee": 110270,
+      "vat": 16540.5,
+      "dutyOffice": 4588,
+      "transferduty": 1806000
+    },
+    {
+      "price": 18000000,
+      "fee": 114710,
+      "vat": 17206.5,
+      "dutyOffice": 4588,
+      "transferduty": 1936000
+    },
+    {
+      "price": 19000000,
+      "fee": 119150,
+      "vat": 17872.5,
+      "dutyOffice": 4588,
+      "transferduty": 2066000
+    },
+    {
+      "price": 20000000,
+      "fee": 123590,
+      "vat": 18538.5,
+      "dutyOffice": 4588,
+      "transferduty": 2196000
+    },
+    {
+      "price": 25000000,
+      "fee": 145790,
+      "vat": 21868.5,
+      "dutyOffice": 6111,
+      "transferduty": 2846000
+    },
+    {
+      "price": 30000000,
+      "fee": 167990,
+      "vat": 25198.5,
+      "dutyOffice": 6111,
+      "transferduty": 3496000
+    },
+    {
+      "price": 30000000.01,
+      "fee": 172430,
+      "vat": 25864.5,
+      "dutyOffice": 6111,
+      "transferduty": 3496000
+    }
+  ]
