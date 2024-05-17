@@ -400,7 +400,7 @@ function getCostsFromFile() {
 
     var data = $.ajax({
         type: 'GET',
-        url: `/calc/costs.json`,
+        url: `costs.json`,
         async: false,
         dataType: "json",
         success: function (data) {
