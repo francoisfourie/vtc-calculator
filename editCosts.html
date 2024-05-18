@@ -290,18 +290,18 @@
     }
   });
 
-  let message = '';
-  if (invalidCount > 0) {
-    message = `${invalidCount} validation error(s) found:\n\n${errors.join("\n")}`;
-    $('#validationResult').text(message).removeClass('text-success').addClass('text-danger');
-  } else {
-    message = "Validation successful!";
-    $('#validationResult').text(message).removeClass('text-danger').addClass('text-success');
-  }
+    let message = '';
+    if (invalidCount > 0) {
+        message = `${invalidCount} validation error(s) found:\n\n${errors.join("\n")}`;
+        $('#validationResult').text(message).removeClass('text-success').addClass('text-danger');
+    } else {
+        message = "Validation successful!";
+        $('#validationResult').text(message).removeClass('text-danger').addClass('text-success');
+    }
 
-  $('#validationSummary').text(message);
-  $('#validationModal').modal('show');
-  console.log(message);
+    $('#validationSummary').text(message);
+    $('#validationModal').modal('show');
+    console.log(message);
 }
 
 
