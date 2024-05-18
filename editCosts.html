@@ -54,7 +54,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Modal for Pasting JSON -->
   <div class="modal fade" id="jsonModal" tabindex="-1" role="dialog" aria-labelledby="jsonModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -75,6 +75,26 @@
     </div>
   </div>
 
+  <!-- Modal for Validation Results -->
+  <div class="modal fade" id="validationModal" tabindex="-1" role="dialog" aria-labelledby="validationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="validationModalLabel">Validation Results</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="validationSummary">
+          <!-- Validation results will be inserted here -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Bootstrap JS and dependencies -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
@@ -83,7 +103,7 @@
   <script>
     $(document).ready(function() {
       let jsonData = getCostsFromFile();
-      
+
       function populateTable() {
         $('#jsonTable tbody').empty();
         jsonData.fees.forEach((fee, index) => {
@@ -137,19 +157,154 @@
         }
       }
 
-      function validateJson() {
-        let invalidCount = 0;
-        $('#jsonTable tbody tr').removeClass('table-danger');
-        jsonData.fees.forEach((fee, index) => {
-          if (!fee.bond_amount_range || fee.fee <= 0 || fee.vat <= 0 || fee.fee_plus_vat <= 0 || fee.deeds_office_charge <= 0 || fee.transfer_duty <= 0) {
-            invalidCount++;
-            $('#jsonTable tbody tr').eq(index).addClass('table-danger');
-          }
-        });
+    //   function validateJson() {
+    //     let invalidCount = 0;
+    //     let previousRangeEnd = null;
+    //     let errors = [];
+    //     $('#jsonTable tbody tr').removeClass('table-danger');
 
-        let message = invalidCount === 0 ? 'Validation successful!' : `Validation failed: ${invalidCount} row(s) have errors.`;
-        $('#validationResult').text(message);
+    //     jsonData.fees.forEach((fee, index) => {
+    //       let rowInvalid = false;
+    //       let errorMessages = [];
+
+    //       // Check if all fields are populated and greater than 0 (except transfer_duty)
+    //       if (!fee.bond_amount_range || fee.fee <= 0 || fee.vat <= 0 || fee.fee_plus_vat <= 0 || fee.deeds_office_charge <= 0 || fee.transfer_duty < 0) {
+    //         rowInvalid = true;
+    //         errorMessages.push("All fields except Transfer Duty must be populated and greater than 0.");
+    //       }
+
+    //       // Check for valid range format
+    //       const rangeParts = fee.bond_amount_range.split('-').map(Number);
+    //       if (rangeParts.length === 1) {
+    //         const specificValue = rangeParts[0];
+    //         if (isNaN(specificValue) || specificValue <= 0) {
+    //           rowInvalid = true;
+    //           errorMessages.push("Invalid specific value in bond amount range.");
+    //         }
+    //         if (previousRangeEnd !== null && specificValue <= previousRangeEnd) {
+    //           rowInvalid = true;
+    //           errorMessages.push("Overlapping range detected.");
+    //         }
+    //         previousRangeEnd = specificValue;
+    //       } else if (rangeParts.length === 2) {
+    //         const [rangeStart, rangeEnd] = rangeParts;
+    //         if (rangeStart >= rangeEnd || isNaN(rangeStart) || isNaN(rangeEnd) || rangeStart <= 0 || rangeEnd <= 0) {
+    //           rowInvalid = true;
+    //           errorMessages.push("Invalid range: start should be less than end and both should be greater than 0.");
+    //         }
+    //         if (previousRangeEnd !== null && rangeStart <= previousRangeEnd) {
+    //           rowInvalid = true;
+    //           errorMessages.push("Overlapping range detected.");
+    //         }
+    //         previousRangeEnd = rangeEnd;
+    //       } else {
+    //         rowInvalid = true;
+    //         errorMessages.push("Invalid range format. Use 'start-end' or a specific value.");
+    //       }
+
+    //       if (rowInvalid) {
+    //         $('#jsonTable tbody tr').eq(index).addClass('table-danger');
+    //         errors.push(`Row ${index + 1}: ${errorMessages.join(' ')}`);
+    //         invalidCount++;
+    //       }
+    //     });
+
+    //     let message = '';
+    //     if (invalidCount > 0) {
+    //       message = `${invalidCount} validation error(s) found:\n\n${errors.join("\n")}`;
+    //       $('#validationResult').text(message).removeClass('text-success').addClass('text-danger');
+    //     } else {
+    //       message = "Validation successful!";
+    //       $('#validationResult').text(message).removeClass('text-danger').addClass('text-success');
+    //     }
+
+    //     $('#validationSummary').text(message);
+    //     $('#validationModal').modal('show');
+    //     console.log(message);
+    //   }
+
+    function validateJson() {
+  let invalidCount = 0;
+  let previousRangeEnd = null;
+  let errors = [];
+  $('#jsonTable tbody tr').removeClass('table-danger');
+
+  jsonData.fees.forEach((fee, index) => {
+    let rowInvalid = false;
+    let errorMessages = [];
+
+    // Check if all fields are populated and greater than 0 (except transfer_duty)
+    if (
+      !fee.bond_amount_range ||
+      fee.fee <= 0 ||
+      fee.vat <= 0 ||
+      fee.fee_plus_vat <= 0 ||
+      fee.deeds_office_charge <= 0 ||
+      fee.transfer_duty < 0
+    ) {
+      rowInvalid = true;
+      errorMessages.push("All fields except Transfer Duty must be populated and greater than 0.");
+    }
+
+    // Check for valid range format
+    if (typeof fee.bond_amount_range === 'string') {
+      const rangeParts = fee.bond_amount_range.split('-').map(Number);
+      if (rangeParts.length === 1) {
+        const specificValue = rangeParts[0];
+        if (isNaN(specificValue) || specificValue <= 0) {
+          rowInvalid = true;
+          errorMessages.push("Invalid specific value in bond amount range.");
+        }
+        if (previousRangeEnd !== null && specificValue <= previousRangeEnd) {
+          rowInvalid = true;
+          errorMessages.push("Overlapping range detected.");
+        }
+        previousRangeEnd = specificValue;
+      } else if (rangeParts.length === 2) {
+        const [rangeStart, rangeEnd] = rangeParts;
+        if (rangeStart >= rangeEnd || isNaN(rangeStart) || isNaN(rangeEnd) || rangeStart <= 0 || rangeEnd <= 0) {
+          rowInvalid = true;
+          errorMessages.push("Invalid range: start should be less than end and both should be greater than 0.");
+        }
+        if (previousRangeEnd !== null && rangeStart <= previousRangeEnd) {
+          rowInvalid = true;
+          errorMessages.push("Overlapping range detected.");
+        }
+        previousRangeEnd = rangeEnd;
+      } else {
+        rowInvalid = true;
+        errorMessages.push("Invalid range format. Use 'start-end' or a specific value.");
       }
+    } else {
+      // Check if bond_amount_range is a number greater than 0
+      if (isNaN(fee.bond_amount_range) || fee.bond_amount_range <= 0) {
+        rowInvalid = true;
+        errorMessages.push("Bond amount range must be a positive number or a range in the format 'start-end'.");
+      }
+    }
+
+    if (rowInvalid) {
+      $('#jsonTable tbody tr').eq(index).addClass('table-danger');
+      errors.push(`Row ${index + 1}: ${errorMessages.join(' ')}`);
+      invalidCount++;
+    }
+  });
+
+  let message = '';
+  if (invalidCount > 0) {
+    message = `${invalidCount} validation error(s) found:\n\n${errors.join("\n")}`;
+    $('#validationResult').text(message).removeClass('text-success').addClass('text-danger');
+  } else {
+    message = "Validation successful!";
+    $('#validationResult').text(message).removeClass('text-danger').addClass('text-success');
+  }
+
+  $('#validationSummary').text(message);
+  $('#validationModal').modal('show');
+  console.log(message);
+}
+
+
 
       $('#jsonTable').on('input', 'input', function() {
         const index = $(this).data('index');

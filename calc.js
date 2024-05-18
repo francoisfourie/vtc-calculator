@@ -334,29 +334,50 @@ $(".sumButton").addClass("hidden")
 // find value
 // Function to get fees for a specific bond amount
 function getFees(bondAmount) {
-    feesData = getCostsFromFile();
+    const feesData = getCostsFromFile();
 
-    // Handle cases where bond amount is less than 500,000
-    if (bondAmount < 500000) {
-        return {
-            fee: feesData.fees[0].fee,
-            vat: feesData.fees[0].vat,
-            total: feesData.fees[0].fee_plus_vat,
-            deeds_office_charge: feesData.fees[0].deeds_office_charge,
-            transfer_duty: feesData.fees[0].transfer_duty
-        };
+    // Extract the minimum and maximum bond amounts from the fees data
+    let minBondAmount = Infinity;
+    let maxBondAmount = -Infinity;
+
+    for (const feeEntry of feesData.fees) {
+        if (feeEntry.bond_amount_range.includes("-")) {
+            const range = feeEntry.bond_amount_range.split("-");
+            const lowerBound = parseFloat(range[0].replace(/,/g, ''));
+            const upperBound = parseFloat(range[1].replace(/,/g, '')) || lowerBound;
+
+            if (lowerBound < minBondAmount) minBondAmount = lowerBound;
+            if (upperBound > maxBondAmount) maxBondAmount = upperBound;
+        } else {
+            const amount = parseFloat(feeEntry.bond_amount_range.replace(/,/g, ''));
+            if (amount < minBondAmount) minBondAmount = amount;
+            if (amount > maxBondAmount) maxBondAmount = amount;
+        }
     }
 
-    // Handle cases where bond amount is greater than 6,000,000
-    if (bondAmount > 6000000) {
+    // Handle cases where bond amount is less than the minimum bond amount
+    if (bondAmount < minBondAmount) {
+        issue("Please insert an amount more than R" + numberWithCommas(minBondAmount));
+        // return {
+        //     fee: feesData.fees[0].fee,
+        //     vat: feesData.fees[0].vat,
+        //     total: feesData.fees[0].fee_plus_vat,
+        //     deeds_office_charge: feesData.fees[0].deeds_office_charge,
+        //     transfer_duty: feesData.fees[0].transfer_duty
+        // };
+    }
+
+    // Handle cases where bond amount is greater than the maximum bond amount
+    if (bondAmount > maxBondAmount) {
         const lastEntryIndex = feesData.fees.length - 1;
-        return {
-            fee: feesData.fees[lastEntryIndex].fee,
-            vat: feesData.fees[lastEntryIndex].vat,
-            total: feesData.fees[lastEntryIndex].fee_plus_vat,
-            deeds_office_charge: feesData.fees[lastEntryIndex].deeds_office_charge,
-            transfer_duty: feesData.fees[lastEntryIndex].transfer_duty
-        };
+        // return {
+        //     fee: feesData.fees[lastEntryIndex].fee,
+        //     vat: feesData.fees[lastEntryIndex].vat,
+        //     total: feesData.fees[lastEntryIndex].fee_plus_vat,
+        //     deeds_office_charge: feesData.fees[lastEntryIndex].deeds_office_charge,
+        //     transfer_duty: feesData.fees[lastEntryIndex].transfer_duty
+        // };
+        issue("Please insert an amount less than R" + numberWithCommas(maxBondAmount));
     }
 
     let closestLowerBound = -Infinity;
@@ -403,6 +424,8 @@ function getFees(bondAmount) {
 
     return closestFees; // Return closest fees found
 }
+
+
 
 
 
