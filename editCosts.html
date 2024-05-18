@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON Editor</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <style>
+    .table-container, .json-container {
+      height: 80vh;
+      overflow-y: auto;
+    }
+    textarea {
+      width: 100%;
+      height: 80vh;
+    }
+    .table-danger {
+      background-color: #f8d7da;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 table-container">
+        <button id="addRowTop" class="btn btn-primary mb-2">Add Row at Top</button>
+        <button id="addRowBottom" class="btn btn-primary mb-2">Add Row at Bottom</button>
+        <table class="table table-bordered" id="jsonTable">
+          <thead>
+            <tr>
+              <th>Bond Amount Range</th>
+              <th>Fee</th>
+              <th>VAT</th>
+              <th>Fee Plus VAT</th>
+              <th>Deeds Office Charge</th>
+              <th>Transfer Duty</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be populated by jQuery -->
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-4 json-container">
+        <button id="pasteJsonButton" class="btn btn-secondary mb-2">Paste JSON</button>
+        <button id="validateJsonButton" class="btn btn-info mb-2">Validate JSON</button>
+        <textarea id="jsonOutput" readonly></textarea>
+        <div id="validationResult" class="mt-2"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="jsonModal" tabindex="-1" role="dialog" aria-labelledby="jsonModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="jsonModalLabel">Paste JSON</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <textarea id="jsonInput" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="submitJson">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./calc.js?v=1.0.1"></script>
+
+  <script>
+    $(document).ready(function() {
+      let jsonData = getCostsFromFile();
+      
+      function populateTable() {
+        $('#jsonTable tbody').empty();
+        jsonData.fees.forEach((fee, index) => {
+          $('#jsonTable tbody').append(`
+            <tr>
+              <td><input type="text" class="form-control" value="${fee.bond_amount_range}" data-index="${index}" data-key="bond_amount_range"></td>
+              <td><input type="number" class="form-control" value="${fee.fee}" data-index="${index}" data-key="fee"></td>
+              <td><input type="number" class="form-control" value="${fee.vat}" data-index="${index}" data-key="vat"></td>
+              <td><input type="number" class="form-control" value="${fee.fee_plus_vat}" data-index="${index}" data-key="fee_plus_vat"></td>
+              <td><input type="number" class="form-control" value="${fee.deeds_office_charge}" data-index="${index}" data-key="deeds_office_charge"></td>
+              <td><input type="number" class="form-control" value="${fee.transfer_duty}" data-index="${index}" data-key="transfer_duty"></td>
+              <td><button class="btn btn-success btn-sm addRowBefore" data-index="${index}">Add Before</button> <button class="btn btn-success btn-sm addRowAfter" data-index="${index}">Add After</button></td>
+            </tr>
+          `);
+        });
+        updateJsonOutput();
+      }
+
+      function updateJsonOutput() {
+        $('#jsonOutput').val(JSON.stringify(jsonData, null, 2));
+      }
+
+      function addRow(index, position) {
+        const newRow = {
+          bond_amount_range: "",
+          fee: 0,
+          vat: 0,
+          fee_plus_vat: 0,
+          deeds_office_charge: 0,
+          transfer_duty: 0
+        };
+        if (position === 'before') {
+          jsonData.fees.splice(index, 0, newRow);
+        } else if (position === 'after') {
+          jsonData.fees.splice(index + 1, 0, newRow);
+        } else if (position === 'top') {
+          jsonData.fees.unshift(newRow);
+        } else if (position === 'bottom') {
+          jsonData.fees.push(newRow);
+        }
+        populateTable();
+      }
+
+      function validateAndUpdateJson(inputJson) {
+        try {
+          jsonData = JSON.parse(inputJson);
+          populateTable();
+          $('#jsonModal').modal('hide');
+        } catch (e) {
+          alert('Invalid JSON format. Please correct it.');
+        }
+      }
+
+      function validateJson() {
+        let invalidCount = 0;
+        $('#jsonTable tbody tr').removeClass('table-danger');
+        jsonData.fees.forEach((fee, index) => {
+          if (!fee.bond_amount_range || fee.fee <= 0 || fee.vat <= 0 || fee.fee_plus_vat <= 0 || fee.deeds_office_charge <= 0 || fee.transfer_duty <= 0) {
+            invalidCount++;
+            $('#jsonTable tbody tr').eq(index).addClass('table-danger');
+          }
+        });
+
+        let message = invalidCount === 0 ? 'Validation successful!' : `Validation failed: ${invalidCount} row(s) have errors.`;
+        $('#validationResult').text(message);
+      }
+
+      $('#jsonTable').on('input', 'input', function() {
+        const index = $(this).data('index');
+        const key = $(this).data('key');
+        const value = $(this).val();
+        jsonData.fees[index][key] = isNaN(value) ? value : parseFloat(value);
+        updateJsonOutput();
+      });
+
+      $('#jsonTable').on('click', '.addRowBefore', function() {
+        const index = $(this).data('index');
+        addRow(index, 'before');
+      });
+
+      $('#jsonTable').on('click', '.addRowAfter', function() {
+        const index = $(this).data('index');
+        addRow(index, 'after');
+      });
+
+      $('#addRowTop').click(function() {
+        addRow(null, 'top');
+      });
+
+      $('#addRowBottom').click(function() {
+        addRow(null, 'bottom');
+      });
+
+      $('#pasteJsonButton').click(function() {
+        $('#jsonModal').modal('show');
+      });
+
+      $('#submitJson').click(function() {
+        const inputJson = $('#jsonInput').val();
+        validateAndUpdateJson(inputJson);
+      });
+
+      $('#validateJsonButton').click(function() {
+        validateJson();
+      });
+
+      populateTable();
+    });
+  </script>
+</body>
+</html>
