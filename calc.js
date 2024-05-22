@@ -17,7 +17,7 @@ $(document).ready(function () {
 function calculateTransfer(event) {
     cleanScreen();
     event.preventDefault()
-    var tranval = document.getElementById("amntt").value.replace(/,/g, '');
+    var tranval = document.getElementById("amntt").value.replace(/,/g, '') ;
 
     var data = getFees(tranval);
 
@@ -326,6 +326,7 @@ function openTab(evt, cityName) {
 
 function numberWithCommas(x) {
     // var y = parseInt(x)
+    x = parseFloat(x);
     return x.toLocaleString("en-US", { maximumFractionDigits: 2, minimumFractionDigits: 2 });
 }
 
