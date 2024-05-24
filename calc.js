@@ -149,7 +149,7 @@ function calculateBondCosts(event) {
                 <h6 class="h6 m-0">Bond costs on R${numberWithCommas(tranval)}</h6>
             </div>
             
-<hr/>
+        <hr/>
             <table  class="table table-striped responsive-font-table">
         <tr>
         <td>Attorney Fees</td>
@@ -230,31 +230,31 @@ function calculateInstalments(event) {
                 <h6 class="h6 m-0">Instalments Costs on R${numberWithCommas(principal)}</h6>
             </div>
     
-<hr/>
-    <table class="table table-striped responsive-font-table">
-<tr>
-<td>Pay-off time</td>
-<td>${numberWithCommas(Loan_Years.value)} Years</td>
-</tr>
-<tr>
-<td>Monthly payment</td>
-<td  >R${numberWithCommas(MonthlyP)}</td>
-</tr>
-<tr>
-<td>Total capital paid</td>
-<td  >R${numberWithCommas(principal)}</td>
-</tr>
-<tr>
-<td>Total interest paid</td>
-<td  >R${numberWithCommas(interestP)}</td>
-</tr>
-<tr>
-<td><b>Total amount paid</b></td>
-<td  ><b>R${numberWithCommas(GrandTotal)}</b></td>
-</tr>
-    </table>
-    <hr/>
-</div>`
+        <hr/>
+            <table class="table table-striped responsive-font-table">
+        <tr>
+        <td>Pay-off time</td>
+        <td>${numberWithCommas(Loan_Years.value)} Years</td>
+        </tr>
+        <tr>
+        <td>Monthly payment</td>
+        <td  >R${numberWithCommas(MonthlyP)}</td>
+        </tr>
+        <tr>
+        <td>Total capital paid</td>
+        <td  >R${numberWithCommas(principal)}</td>
+        </tr>
+        <tr>
+        <td>Total interest paid</td>
+        <td  >R${numberWithCommas(interestP)}</td>
+        </tr>
+        <tr>
+        <td><b>Total amount paid</b></td>
+        <td  ><b>R${numberWithCommas(GrandTotal)}</b></td>
+        </tr>
+            </table>
+            <hr/>
+        </div>`
         )
 
     }
@@ -318,9 +318,6 @@ function openTab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 
-    // if (cityName == "BA") {
-    //     $("#Sub-Def").click()
-    // }
 }
 
 
