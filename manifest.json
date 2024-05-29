@@ -1,0 +1,9 @@
+{
+    "name": "Velile Tinto Cape",
+    "short_name": "VTC",
+    "description": "Velile Tinto Cape Conveyancers & Attorneys in Cape Town",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#000000"
+  }
