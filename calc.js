@@ -21,23 +21,34 @@ function calculateTransfer(event) {
 
     var data = getFees(tranval);
 
+    //from sheet, exclude VAT
+    var tf = parseInt(data.transfer_duty)
+    var dof = parseInt(data.deeds_office_charge)
+
     var af = data.fee
     var ps = 350.00
 
-    var SCandFS = 85.00 //new
-    var Transfee = 350.00 //new
+    var SCandFS = 100.00 //new
+    var Transfee = 375.00 //FF new 05/07/2024
     var ratesclearcert = 80.00 //new
-    var fica = 250.00  //new
+    var fica = 800.00  //FF new 05/07/2024
     var dgf = 607.00
     var erf = 1000.00
     var pp = 950.00
-    var subtotal = af + ps  + dgf + erf + pp + SCandFS + Transfee + fica
+    var etdf = 325.00 //FF new 05/07/2024
+
+    var payverlexis = 225;
+    var accverfee = 17.5;
+    var elecfacfee = 625;
+
+
+    var subtotal = af + ps  + dgf + erf + pp + SCandFS + Transfee + fica + ratesclearcert + etdf + payverlexis + accverfee + elecfacfee;
+
     var vatcalc = (15 / 100) * subtotal
     var vat = vatcalc
-    var etdf = 300.00
-    var tf = parseInt(data.transfer_duty)
-    var dof = parseInt(data.deeds_office_charge)
-    var tc = subtotal + vatcalc + dof + etdf + tf + ratesclearcert
+    
+    
+    var tc = subtotal + vatcalc + dof + tf 
 
     var total = tc
 
@@ -48,12 +59,25 @@ function calculateTransfer(event) {
            <div class="form-header bg-secondary text-white py-2 px-3 rounded">
                 <h6 class="h6 m-0">Transfer costs on R${numberWithCommas(tranval)}</h6>
             </div>
-            
-            
+                        
 <hr/>
-            <table class="table table-striped responsive-font-table">
+        <table class="table responsive-font-table">
+        <tr >
+        <td colspan="2" > <b>GOVERNMENT COSTS </b> </td>
+        </tr>
         <tr>
-        <td>Attorney Fees</td>
+        <td>Deeds Office Fees</td>
+        <td  >R${numberWithCommas(dof)}</td>
+        </tr>
+        <tr>
+        <td>Transfer Duties</td>
+        <td  >R${numberWithCommas(tf)}</td>
+        </tr>
+        <tr>
+        <td colspan="2" > <b>ATTORNEYS COSTS </b> </td>
+        </tr>
+        <tr>
+        <td>Attorney Fee</td>
         <td  >R${numberWithCommas(af)}</td>
         </tr>
         <tr>
@@ -85,10 +109,7 @@ function calculateTransfer(event) {
         <td>Transfer Duty Submission Fee</td>
         <td  >R${numberWithCommas(Transfee)}</td>
         </tr>
-        <tr>
-        <td>VAT</td>
-        <td  >R${numberWithCommas(vat)}</td>
-        </tr>
+        
         <tr>
         <td>Rates Clearance Certificate Fee</td>
         <td  >R${numberWithCommas(ratesclearcert)}</td>
@@ -96,16 +117,37 @@ function calculateTransfer(event) {
         <tr>
         <td>Electronic Transfer Duty Fee</td>
         <td  >R${numberWithCommas(etdf)}</td>
-        </tr>       
+        </tr> 
+        
         <tr>
-        <td>Deeds Office Fees</td>
-        <td  >R${numberWithCommas(dof)}</td>
+        <td>Payment verification via Lexis Pay</td>
+        <td>R${numberWithCommas(payverlexis)}</td>
         </tr>
         <tr>
-        <td>Transfer Duties</td>
-        <td  >R${numberWithCommas(tf)}</td>
+
+        <tr>
+        <td>Account verification and payment fee</td>
+        <td>R${numberWithCommas(accverfee)}</td>
         </tr>
         <tr>
+
+        <tr>
+        <td>Electronic Facilitation Fee</td>
+        <td >R${numberWithCommas(elecfacfee)}</td>
+        </tr>
+        <tr>
+
+        <tr >
+        <td colspan = "2"></td>
+        
+      </tr>
+
+        <tr >
+    <td>VAT</td>
+    <td>R${numberWithCommas(vat)}</td>
+  </tr>
+
+        <tr class="table-secondary">
         <td><b>Total</b></td>
         <td  ><b>R${numberWithCommas(total)}</b></td>
         </tr>
@@ -127,14 +169,19 @@ function calculateBondCosts(event) {
     var data = getFees(tranval);
 
     var af = data.fee
+
     var ps = 375.00
-    var dgf = 520.00
-    var eff = 1150.00
+    var dgf = 1550.00 //FF New 05/07/2024
+    var eff = 1000.00 //FF New 05/07/2024
     var pp = 950.00
     var fica = 250.00
-    var subtotal = af + ps + dgf + eff + pp + fica
-    var vatcalc = (15 / 100) * subtotal
+    var dosearchfee = 545;
+
+    var subtotal = af + ps + dgf + eff + pp + fica + dosearchfee
+    var vatcalc = (15 / 100) * subtotal;
+
     var vat = vatcalc
+
     var dof = parseInt(data.deeds_office_charge)
     var tc = subtotal + vatcalc + dof
 
@@ -149,10 +196,21 @@ function calculateBondCosts(event) {
                 <h6 class="h6 m-0">Bond costs on R${numberWithCommas(tranval)}</h6>
             </div>
             
-        <hr/>
-            <table  class="table table-striped responsive-font-table">
+       
+            <table class="table responsive-font-table">
+            <tr >
+            <td colspan="2" > <b>GOVERNMENT COSTS </b> </td>
+            </tr>
+            <tr>
+            <td>Deeds Office Fees</td>
+            <td  >R${numberWithCommas(dof)}</td>
+            </tr>
         <tr>
-        <td>Attorney Fees</td>
+        <tr>
+        <td colspan="2" > <b>ATTORNEYS COSTS </b> </td>
+        </tr>
+
+        <td>Attorney Fee</td>
         <td  >R${numberWithCommas(af)}</td>
         </tr>  
         <tr>
@@ -176,15 +234,20 @@ function calculateBondCosts(event) {
         <td  >R${numberWithCommas(fica)}</td>
         </tr>
         <tr>
-        <td>VAT</td>
-        <td  >R${numberWithCommas(vat)}</td>
+        <td>Deeds Office search Fee</td>
+        <td  >R${numberWithCommas(dosearchfee)}</td>
         </tr>
+        <tr >
+        <td colspan = "2"></td>
         
-        <tr>
-        <td>Deeds Office Fees</td>
-        <td  >R${numberWithCommas(dof)}</td>
-        </tr>
-        <tr>
+      </tr>
+
+        <tr >
+    <td>VAT</td>
+    <td>R${numberWithCommas(vat)}</td>
+  </tr>
+
+        <tr class="table-secondary">
         <td><b>Total</b></td>
         <td  ><b>R${numberWithCommas(total)}</b></td>
         </tr>
@@ -356,6 +419,7 @@ function getFees(bondAmount) {
     // Handle cases where bond amount is less than the minimum bond amount
     if (bondAmount < minBondAmount) {
         issue("Please insert an amount more than R" + numberWithCommas(minBondAmount));
+        return;
         // return {
         //     fee: feesData.fees[0].fee,
         //     vat: feesData.fees[0].vat,
@@ -376,6 +440,7 @@ function getFees(bondAmount) {
         //     transfer_duty: feesData.fees[lastEntryIndex].transfer_duty
         // };
         issue("Please insert an amount less than R" + numberWithCommas(maxBondAmount));
+        return;
     }
 
     let closestLowerBound = -Infinity;
@@ -419,7 +484,7 @@ function getFees(bondAmount) {
             }
         }
     }
-
+    
     return closestFees; // Return closest fees found
 }
 
@@ -428,25 +493,25 @@ function getFees(bondAmount) {
 
 
 function getCostsFromFile() {
-
+    var timestamp = new Date().getTime(); // Get current timestamp
     var data = $.ajax({
         type: 'GET',
-        url: `costs.json`,
+        url: `costs.json?t=${timestamp}`, // Append timestamp as a query parameter
         async: false,
         dataType: "json",
+        cache: false, // Disable jQuery's ajax cache
         success: function (data) {
             return data;
         },
         error: function (xhr, type, exception) {
-            issue("Error reading from cost file")
+            issue("Error reading from cost file");
         }
     });
 
     if (data.status === 200) {
-        json = data.responseJSON
+        json = data.responseJSON;
         return json;
     }
-
 }
 
 

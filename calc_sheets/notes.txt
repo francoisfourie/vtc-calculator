@@ -1,0 +1,3 @@
+The following was excluded from VAT calculations. now included:
+Rates Clearance Certificate Fee
+Electronic Transfer Duty Fee

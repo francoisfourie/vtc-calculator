@@ -1,0 +1,436 @@
+{
+  "fees": [
+    {
+      "bond_amount_range": "500000-600000",
+      "fee": 15795.00,
+      "vat": 2369.25,
+      "fee_plus_vat": 18164.25,
+      "deeds_office_charge": 800.00,
+      "transfer_duty": 0.00
+    },
+    {
+      "bond_amount_range": "700000-800000",
+      "fee": 19565.00,
+      "vat": 2934.75,
+      "fee_plus_vat": 22499.75,
+      "deeds_office_charge": 1126.00,
+      "transfer_duty": 0.00
+    },
+    {
+      "bond_amount_range": "850000-900000",
+      "fee": 21450.00,
+      "vat": 3217.50,
+      "fee_plus_vat": 24667.50,
+      "deeds_office_charge": 1293.00,
+      "transfer_duty": 0.00
+    },
+    {
+      "bond_amount_range": "950000-1000000",
+      "fee": 23335.00,
+      "vat": 3500.25,
+      "fee_plus_vat": 26835.25,
+      "deeds_office_charge": 1293.00,
+      "transfer_duty": 0.00
+    },
+    {
+      "bond_amount_range": "1100000",
+      "fee": 25220.00,
+      "vat": 3783.00,
+      "fee_plus_vat": 29003.00,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 0.00
+    },
+    {
+      "bond_amount_range": "1200000",
+      "fee": 25220.00,
+      "vat": 3783.00,
+      "fee_plus_vat": 29003.00,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 3000.00
+    },
+    {
+      "bond_amount_range": "1300000",
+      "fee": 27105.00,
+      "vat": 4065.75,
+      "fee_plus_vat": 31170.75,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 6000.00
+    },
+    {
+      "bond_amount_range": "1400000",
+      "fee": 27105.00,
+      "vat": 4065.75,
+      "fee_plus_vat": 31170.75,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 9000.00
+    },
+    {
+      "bond_amount_range": "1500000",
+      "fee": 28990.00,
+      "vat": 4348.50,
+      "fee_plus_vat": 33338.50,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 12000.00
+    },
+    {
+      "bond_amount_range": "1600000",
+      "fee": 28990.00,
+      "vat": 4348.50,
+      "fee_plus_vat": 33338.50,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 17625.00
+    },
+    {
+      "bond_amount_range": "1700000",
+      "fee": 30875.00,
+      "vat": 4631.25,
+      "fee_plus_vat": 35506.25,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 23625.00
+    },
+    {
+      "bond_amount_range": "1800000",
+      "fee": 30875.00,
+      "vat": 4631.25,
+      "fee_plus_vat": 35506.25,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 29625.00
+    },
+    {
+      "bond_amount_range": "1900000",
+      "fee": 32760.00,
+      "vat": 4914.00,
+      "fee_plus_vat": 37674.00,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 35625.00
+    },
+    {
+      "bond_amount_range": "2000000",
+      "fee": 32760.00,
+      "vat": 4914.00,
+      "fee_plus_vat": 37674.00,
+      "deeds_office_charge": 1453.00,
+      "transfer_duty": 41625.00
+    },
+    {
+      "bond_amount_range": "2100000",
+      "fee": 34645.00,
+      "vat": 5196.75,
+      "fee_plus_vat": 39841.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 47625.00
+    },
+    {
+      "bond_amount_range": "2200000",
+      "fee": 34645.00,
+      "vat": 5196.75,
+      "fee_plus_vat": 39841.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 55275.00
+    },
+    {
+      "bond_amount_range": "2300000",
+      "fee": 36530.00,
+      "vat": 5479.50,
+      "fee_plus_vat": 42009.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 63275.00
+    },
+    {
+      "bond_amount_range": "2400000",
+      "fee": 36530.00,
+      "vat": 5479.50,
+      "fee_plus_vat": 42009.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 71275.00
+    },
+    {
+      "bond_amount_range": "2500000",
+      "fee": 38415.00,
+      "vat": 5762.25,
+      "fee_plus_vat": 44177.25,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 79275.00
+    },
+    {
+      "bond_amount_range": "2600000",
+      "fee": 38415.00,
+      "vat": 5762.25,
+      "fee_plus_vat": 44177.25,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 87275.00
+    },
+    {
+      "bond_amount_range": "2700000",
+      "fee": 40300.00,
+      "vat": 6045.00,
+      "fee_plus_vat": 46345.00,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 95275.00
+    },
+    {
+      "bond_amount_range": "2800000",
+      "fee": 40300.00,
+      "vat": 6045.00,
+      "fee_plus_vat": 46345.00,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 105600.00
+    },
+    {
+      "bond_amount_range": "2900000",
+      "fee": 42185.00,
+      "vat": 6327.75,
+      "fee_plus_vat": 50526.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 116600.00
+    },
+    {
+      "bond_amount_range": "3000000",
+      "fee": 42185.00,
+      "vat": 6327.75,
+      "fee_plus_vat": 50526.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 127600.00
+    },
+    {
+      "bond_amount_range": "3100000",
+      "fee": 44070.00,
+      "vat": 6610.50,
+      "fee_plus_vat": 50680.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 138600.00
+    },
+    {
+      "bond_amount_range": "3200000",
+      "fee": 44070.00,
+      "vat": 6615.50,
+      "fee_plus_vat": 50685.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 149600.00
+    },
+    {
+      "bond_amount_range": "3300000",
+      "fee": 45955.00,
+      "vat": 6893.25,
+      "fee_plus_vat": 52848.25,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 160600.00
+    },
+    {
+      "bond_amount_range": "3400000",
+      "fee": 45955.00,
+      "vat": 6893.25,
+      "fee_plus_vat": 52848.25,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 171600.00
+    },
+    {
+      "bond_amount_range": "3500000",
+      "fee": 47840.00,
+      "vat": 7176.00,
+      "fee_plus_vat": 55016.00,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 182600.00
+    },
+    {
+      "bond_amount_range": "3600000",
+      "fee": 47840.00,
+      "vat": 7176.00,
+      "fee_plus_vat": 55016.00,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 193600.00
+    },
+    {
+      "bond_amount_range": "3700000",
+      "fee": 49725.00,
+      "vat": 7458.75,
+      "fee_plus_vat": 57183.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 201600.00
+    },
+    {
+      "bond_amount_range": "3800000",
+      "fee": 49725.00,
+      "vat": 7458.75,
+      "fee_plus_vat": 57183.75,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 215600.00
+    },
+    {
+      "bond_amount_range": "3900000",
+      "fee": 51610.00,
+      "vat": 7741.50,
+      "fee_plus_vat": 59351.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 226600.00
+    },
+    {
+      "bond_amount_range": "4000000",
+      "fee": 51600.00,
+      "vat": 7741.50,
+      "fee_plus_vat": 59341.50,
+      "deeds_office_charge": 2014.00,
+      "transfer_duty": 237600.00
+    },
+    {
+      "bond_amount_range": "4100000",
+      "fee": 53495.00,
+      "vat": 8024.25,
+      "fee_plus_vat": 61519.25,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 248600.00
+    },
+    {
+      "bond_amount_range": "4200000",
+      "fee": 53495.00,
+      "vat": 8024.25,
+      "fee_plus_vat": 61519.25,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 259600.00
+    },
+    {
+      "bond_amount_range": "4300000",
+      "fee": 55380.00,
+      "vat": 8307.00,
+      "fee_plus_vat": 63687.00,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 270600.00
+    },
+    {
+      "bond_amount_range": "4400000",
+      "fee": 55380.00,
+      "vat": 8307.00,
+      "fee_plus_vat": 63687.00,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 281600.00
+    },
+    {
+      "bond_amount_range": "4500000",
+      "fee": 57625.00,
+      "vat": 8589.75,
+      "fee_plus_vat": 66214.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 292600.00
+    },
+    {
+      "bond_amount_range": "4600000",
+      "fee": 57265.00,
+      "vat": 8589.75,
+      "fee_plus_vat": 65854.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 303600.00
+    },
+    {
+      "bond_amount_range": "4700000",
+      "fee": 59150.00,
+      "vat": 8872.50,
+      "fee_plus_vat": 68022.50,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 314600.00
+    },
+    {
+      "bond_amount_range": "4800000",
+      "fee": 59150.00,
+      "vat": 8872.50,
+      "fee_plus_vat": 68022.50,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 325600.00
+    },
+    {
+      "bond_amount_range": "4900000",
+      "fee": 61035.00,
+      "vat": 9155.25,
+      "fee_plus_vat": 70190.25,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 336600.00
+    },
+    {
+      "bond_amount_range": "5000000",
+      "fee": 61035.00,
+      "vat": 9155.25,
+      "fee_plus_vat": 70190.25,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 347600.00
+    },
+    {
+      "bond_amount_range": "5100000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 358600.00
+    },
+    {
+      "bond_amount_range": "5200000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 369600.00
+    },
+    {
+      "bond_amount_range": "5300000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 380600.00
+    },
+    {
+      "bond_amount_range": "5400000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 391600.00
+    },
+    {
+      "bond_amount_range": "5500000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 402600.00
+    },
+    {
+      "bond_amount_range": "5600000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 413600.00
+    },
+    {
+      "bond_amount_range": "5700000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 424600.00
+    },
+    {
+      "bond_amount_range": "5800000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 435600.00
+    },
+    {
+      "bond_amount_range": "5900000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 446600.00
+    },
+    {
+      "bond_amount_range": "6000000",
+      "fee": 65785.00,
+      "vat": 9867.75,
+      "fee_plus_vat": 75652.75,
+      "deeds_office_charge": 2443.00,
+      "transfer_duty": 457600.00
+    }
+  ]
+}
