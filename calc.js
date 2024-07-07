@@ -1,5 +1,12 @@
 $(document).ready(function () {
 
+    let csrfToken = '';
+
+    // Fetch CSRF token when the page loads
+    $.get('email_sender.php', function(data) {
+        csrfToken = JSON.parse(data).csrf_token;
+    });
+    
     if ($(window.parent)[0] !== window) {
         // The page is running inside an iframe
         console.log("Page is running inside an iframe.");
@@ -9,6 +16,108 @@ $(document).ready(function () {
         console.log("Page is not running inside an iframe.");
         //$('#topbar').removeClass("d-none").addClass("d-flex");
     }
+
+    function captureScreen() {
+        const captureElement = document.getElementById("maintab");
+        
+        if (!captureElement) {
+            console.error("Element with id 'maintab' not found");
+            return Promise.reject("Capture element not found");
+        }
+
+        return html2canvas(captureElement);
+    }
+
+    $("#captureAndEmail").click(function() {
+        captureScreen().then(function(canvas) {
+            var imgData = canvas.toDataURL("image/png");
+            
+            $.ajax({
+                url: 'email_sender.php',
+                method: 'POST',
+                data: {
+                    csrf_token: csrfToken,
+                    to: 'recipient@example.com',
+                    subject: 'Screen Capture',
+                    message: 'Please find the screen capture attached.',
+                    image: imgData
+                },
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        console.log('Email sent successfully');
+                    } else {
+                        console.error('Failed to send email:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('AJAX error:', status, error);
+                }
+            });
+        }).catch(function(error) {
+            console.error('html2canvas error:', error);
+        });
+    });
+
+    $("#captureAndWhatsApp").click(function() {
+        captureScreen().then(function(canvas) {
+            canvas.toBlob(function(blob) {
+                if (navigator.share) {
+                    navigator.share({
+                        files: [new File([blob], 'screenshot.png', { type: 'image/png' })],
+                        title: 'Screenshot',
+                        text: 'Check out this screenshot!'
+                    }).then(() => console.log('Shared successfully'))
+                      .catch((error) => console.error('Error sharing:', error));
+                } else {
+                    // Fallback for devices that don't support Web Share API
+                    var url = URL.createObjectURL(blob);
+                    var whatsappLink = document.createElement('a');
+                    whatsappLink.href = "whatsapp://send?text=" + encodeURIComponent("Check out this screenshot! " + url);
+                    whatsappLink.click();
+                    setTimeout(function() {
+                        URL.revokeObjectURL(url);
+                    }, 100);
+                }
+            });
+        }).catch(function(error) {
+            console.error('html2canvas error:', error);
+        });
+    });
+
+
+    // $("#captureAndEmail").click(function() {
+    //     html2canvas(document.getElementById("maintab")).then(function(canvas) {
+    //         var imgData = canvas.toDataURL("image/png");
+            
+    //         $.ajax({
+    //             url: 'email_sender.php',
+    //             method: 'POST',
+    //             data: {
+    //                 csrf_token: csrfToken,
+    //                 to: 'recipient@example.com',
+    //                 subject: 'Screen Capture',
+    //                 message: 'Please find the screen capture attached.',
+    //                 image: imgData
+    //             },
+    //             dataType: 'json',
+    //             success: function(response) {
+    //                 if (response.success) {
+    //                     console.log('Email sent successfully');
+    //                     alert('Email sent');
+    //                 } else {
+    //                     alert('Failed to send email:', response.message);
+    //                     console.error('Failed to send email:', response.message);
+    //                 }
+    //             },
+    //             error: function(response) {
+                    
+    //                 console.error('AJAX error:', status, error);
+    //                 alert('AJAX error:', status, error);
+    //             }
+    //         });
+    //     });
+    // });
 
 
 })
@@ -534,6 +643,11 @@ const showAlert = (message, type) => {
     ].join('')
 
     alertPlaceholder.append(wrapper)
+}
+
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 
 
