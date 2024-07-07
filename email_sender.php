@@ -4,7 +4,7 @@
 session_start();
 
 //TODO : UPDATE
-$SENDGRID_API_KEY = 'xxxxxx';
+$SENDGRID_API_KEY = 'xxxxxx2222';
 
 $emailFooter = '<table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-family: Arial, sans-serif; font-size: 12px; color: #333;">
 <tr>
