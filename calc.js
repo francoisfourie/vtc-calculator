@@ -30,7 +30,6 @@ $(document).ready(function () {
     }
 
     $(document).on('click', '#captureAndEmail', function() {
-        alert('hi');
         captureScreen().then(function(canvas) {
             capturedImageData = canvas.toDataURL("image/png");
             var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
