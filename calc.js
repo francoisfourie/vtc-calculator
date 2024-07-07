@@ -1,6 +1,7 @@
 $(document).ready(function () {
 
     let csrfToken = '';
+    let capturedImageData = null;
 
     // Fetch CSRF token when the page loads
     $.get('email_sender.php', function(data) {
@@ -28,38 +29,18 @@ $(document).ready(function () {
         return html2canvas(captureElement);
     }
 
-    $("#captureAndEmail").click(function() {
+    $(document).on('click', '#captureAndEmail', function() {
+        alert('hi');
         captureScreen().then(function(canvas) {
-            var imgData = canvas.toDataURL("image/png");
-            
-            $.ajax({
-                url: 'email_sender.php',
-                method: 'POST',
-                data: {
-                    csrf_token: csrfToken,
-                    to: 'recipient@example.com',
-                    subject: 'Screen Capture',
-                    message: 'Please find the screen capture attached.',
-                    image: imgData
-                },
-                dataType: 'json',
-                success: function(response) {
-                    if (response.success) {
-                        console.log('Email sent successfully');
-                    } else {
-                        console.error('Failed to send email:', response.message);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error('AJAX error:', status, error);
-                }
-            });
+            capturedImageData = canvas.toDataURL("image/png");
+            var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
+            emailModal.show();
         }).catch(function(error) {
             console.error('html2canvas error:', error);
         });
     });
 
-    $("#captureAndWhatsApp").click(function() {
+    $(document).on('click', '#captureAndWhatsApp', function() {
         captureScreen().then(function(canvas) {
             canvas.toBlob(function(blob) {
                 if (navigator.share) {
@@ -84,6 +65,83 @@ $(document).ready(function () {
             console.error('html2canvas error:', error);
         });
     });
+
+    // $("#captureAndEmail").click(function() {
+    //     captureScreen().then(function(canvas) {
+    //         capturedImageData = canvas.toDataURL("image/png");
+    //         var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
+    //         emailModal.show();
+    //     }).catch(function(error) {
+    //         console.error('html2canvas error:', error);
+    //     });
+    // });
+
+    $("#sendEmailBtn").click(function() {
+        const recipientEmail = $('#recipientEmail').val();
+        if (!recipientEmail) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        $.ajax({
+            url: 'email_sender.php',
+            method: 'POST',
+            data: {
+                csrf_token: csrfToken,
+                to: recipientEmail,
+                subject: 'Screen Capture',
+                message: 'Please find the screen capture attached.',
+                image: capturedImageData
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    console.log('Email sent successfully');
+                    $('#emailModal').modal('hide');
+                    alert('Email sent successfully!');
+                } else {
+                    console.error('Failed to send email:', response.message);
+                    alert('Failed to send email: ' + response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('AJAX error:', status, error);
+                alert('An error occurred while sending the email.');
+            }
+        });
+
+        var emailModal = bootstrap.Modal.getInstance(document.getElementById('emailModal'));
+            if (emailModal) {
+                emailModal.hide();
+            }
+
+    });
+
+    // $("#captureAndWhatsApp").click(function() {
+    //     captureScreen().then(function(canvas) {
+    //         canvas.toBlob(function(blob) {
+    //             if (navigator.share) {
+    //                 navigator.share({
+    //                     files: [new File([blob], 'screenshot.png', { type: 'image/png' })],
+    //                     title: 'Screenshot',
+    //                     text: 'Check out this screenshot!'
+    //                 }).then(() => console.log('Shared successfully'))
+    //                   .catch((error) => console.error('Error sharing:', error));
+    //             } else {
+    //                 // Fallback for devices that don't support Web Share API
+    //                 var url = URL.createObjectURL(blob);
+    //                 var whatsappLink = document.createElement('a');
+    //                 whatsappLink.href = "whatsapp://send?text=" + encodeURIComponent("Check out this screenshot! " + url);
+    //                 whatsappLink.click();
+    //                 setTimeout(function() {
+    //                     URL.revokeObjectURL(url);
+    //                 }, 100);
+    //             }
+    //         });
+    //     }).catch(function(error) {
+    //         console.error('html2canvas error:', error);
+    //     });
+    // });
 
 
     // $("#captureAndEmail").click(function() {
@@ -119,7 +177,13 @@ $(document).ready(function () {
     //     });
     // });
 
-
+        // To handle the close button and top-right (x) button:
+        $(document).on('click', '[data-bs-dismiss="modal"]', function() {
+            var emailModal = bootstrap.Modal.getInstance(document.getElementById('emailModal'));
+            if (emailModal) {
+                emailModal.hide();
+            }
+        });
 })
 
 // transfer
@@ -165,9 +229,17 @@ function calculateTransfer(event) {
         `
             
             <div style="overflow-x:auto;" class="result">
-           <div class="form-header bg-secondary text-white py-2 px-3 rounded">
-                <h6 class="h6 m-0">Transfer costs on R${numberWithCommas(tranval)}</h6>
+            <div class="form-header bg-secondary text-white py-2 px-3 rounded">
+            <h6 class="h6 m-0">Transfer costs on R${numberWithCommas(tranval)}</h6>
+            <div class="icon-buttons">
+                <a href="#" id="captureAndEmail" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="#" id="captureAndWhatsApp" title="Share">
+                    <i class="fas fa-share"></i>
+                </a>
             </div>
+        </div>
                         
 <hr/>
         <table class="table responsive-font-table">
