@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'personalizations' => [
             [
                 'to' => [
-                    ['email' => 'francoisbfourie@gmail.com']
+                    ['email' => $to]
                 ]
             ]
         ],
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 "content" => str_replace('data:image/png;base64,', '', $image),
                 "type" => "image/png",
                 "filename" => "estimateImage.png",
-                "disposition" => "attached",
+                "disposition" => "attachment",
                 "content_id" => "estimateImage"
             ]
         ]
