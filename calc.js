@@ -35,32 +35,6 @@ $(document).ready(function () {
         </div>
       </div>`;
 
-        // const maintabContent = document.getElementById("maintab");
-
-        // const screenshotContent = maintabContent.cloneNode(true);
-        // // Use jQuery to set the content of screenshotheader in the cloned element
-        // $(screenshotContent).find("#screenshotheader").html(screenshotheadercontent);
-
-        // if (!screenshotContent) {
-        //     console.error("Element with id 'maintab' not found");
-        //     return Promise.reject("Capture element not found");
-        // }
-
-        // // Temporarily append the cloned element to the DOM
-        // document.body.appendChild(screenshotContent);
-
-        //return html2canvas(screenshotContent);
-        // Use html2canvas to capture the contents of the cloned element
-        // return html2canvas(screenshotContent).then(canvas => {
-        //     // Do something with the canvas
-        //     document.body.appendChild(canvas);
-
-        //     // Remove the cloned element from the DOM after capturing
-        //     document.body.removeChild(screenshotContent);
-        // });
-
-       // $("#screenshotheader").html(screenshotheadercontent);
-
         const captureElement = document.getElementById("maintab");
        
         if (captureElement) {
@@ -643,7 +617,7 @@ function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
 
    $("#result").html("")
-
+   $("#footernote").html("")
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
@@ -797,7 +771,7 @@ function getCostsFromFile() {
 function setResult(value)
 {
     $("#result").html(value);
-    $("#footernote").html(`<p class="responsive-font-table text-secondary fw-bold explanation" style=" font-style: italic;">
+    $("#footernote").html(`<p class="responsive-font-table text-secondary" style=" font-style: italic;">
     <i>Please note that these fees are provided as a general guide and do not represent an exhaustive list of potential charges. For a precise calculation of all applicable costs, we recommend contacting our offices to request a detailed, formal quote.</i> <br>
     <i>It's important to note that your transaction may incur additional costs and disbursements beyond the fees listed above. These can include expenses for obtaining rates and levies information, Transfer Duty, Homeowners Association figures, FICA compliance, Conveyancers Certificates, Powers of Attorney, and various undertakings. Such extra expenses are not included in the initial estimate and will be added to the total cost. We recommend factoring in these potential additional expenses when budgeting for your transaction.</i>
     </p>`)
