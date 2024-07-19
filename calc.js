@@ -170,9 +170,9 @@ $(document).ready(function () {
             if (navigator.share) {
                 const pdfBlob = pdf.output('blob');
                 navigator.share({
-                    files: [new File([pdfBlob], 'capture.pdf', { type: 'application/pdf' })],
-                    title: 'PDF Capture',
-                    text: 'Check out this PDF capture!'
+                    files: [new File([pdfBlob], 'vtc.pdf', { type: 'application/pdf' })],
+                    title: 'VTC Estimate',
+                    text: 'VTC Estimate'
                 }).then(() => console.log('Shared successfully'))
                   .catch((error) => console.error('Error sharing:', error));
             } else {
