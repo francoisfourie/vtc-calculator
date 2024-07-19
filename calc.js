@@ -59,25 +59,69 @@ $(document).ready(function () {
         //     document.body.removeChild(screenshotContent);
         // });
 
-        $("#screenshotheader").html(screenshotheadercontent);
+       // $("#screenshotheader").html(screenshotheadercontent);
 
         const captureElement = document.getElementById("maintab");
-    
+       
         if (captureElement) {
             console.log("Element found:", captureElement);
     
-            html2canvas(captureElement).then(canvas => {
+            // Get the dimensions of the original element
+            const elementWidth = captureElement.offsetWidth;
+            const elementHeight = captureElement.scrollHeight;
+            //const elementHeight = captureElement.offsetHeight;
+
+            // Create a clone of the captureElement
+            const screenshotContent = captureElement.cloneNode(true);
+
+            // Add the header content to the clone
+            $(screenshotContent).find("#screenshotheader").html(screenshotheadercontent);
+
+            // Create an off-screen container for the screenshot content
+            const offScreenDiv = document.createElement('div');
+            offScreenDiv.style.position = 'fixed';
+            offScreenDiv.style.top = '-9999px';
+            offScreenDiv.style.left = '-9999px';
+            offScreenDiv.style.width = `${elementWidth}px`;
+            offScreenDiv.style.height = `${elementHeight}px`;
+            offScreenDiv.style.overflow = 'visible';
+
+             // Set the width and height of the clone to match the original element
+             screenshotContent.style.width = `${elementWidth}px`;
+             screenshotContent.style.height = `${elementHeight}px`;
+             
+            offScreenDiv.appendChild(screenshotContent);
+            document.body.appendChild(offScreenDiv);
+
+            html2canvas(screenshotContent, {
+                scrollY: -window.scrollY,
+                height: screenshotContent.scrollHeight,
+                windowHeight: screenshotContent.scrollHeight
+              }).then(canvas => {
+                
                 console.log("Canvas created:", canvas);
-    
+                $("#screenshotheader").html("");
                 canvas.toBlob(function(blob) {
+                   
                     if (blob) {
                         console.log("Blob created:", blob);
     
+                        // Create a URL for the blob and log it
+                        const blobUrl = URL.createObjectURL(blob);
+                        console.log("Blob URL:", blobUrl);
+                        const a = document.createElement('a');
+                        a.href = blobUrl;
+                        a.textContent = "View Screenshot";
+                        a.target = "_blank";
+                          // Append the anchor element to the body (or another element) to make it clickable
+                          //TODO : Hide when not DEV
+                          document.body.appendChild(a);
+
                         if (navigator.share) {
                             navigator.share({
-                                files: [new File([blob], 'screenshot.png', { type: 'image/png' })],
-                                title: 'Screenshot',
-                                text: 'Check out this screenshot!'
+                                files: [new File([blob], 'vtc.png', { type: 'image/png' })],
+                                title: 'vtc',
+                                text: 'VTC-calculator'
                             }).then(() => {
                                 console.log('Shared successfully');
                             }).catch(error => {
@@ -87,7 +131,7 @@ $(document).ready(function () {
                             // Fallback for devices that don't support Web Share API
                             var url = URL.createObjectURL(blob);
                             var whatsappLink = document.createElement('a');
-                            whatsappLink.href = "whatsapp://send?text=" + encodeURIComponent("Check out this screenshot! " + url);
+                            whatsappLink.href = "whatsapp://send?text=" + encodeURIComponent("VTC-calculator! " + url);
                             whatsappLink.click();
                             console.log('WhatsApp link created and clicked:', whatsappLink.href);
                             setTimeout(function() {
@@ -105,6 +149,7 @@ $(document).ready(function () {
         } else {
             console.error("captureElement not found");
         }
+       
     }
 
     // $(document).on('click', '#captureAndEmail', function() {
