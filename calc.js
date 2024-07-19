@@ -78,6 +78,7 @@ $(document).ready(function () {
       
         captureToPDF().then(pdf => {
             const pdfData = pdf.output('datauristring');
+            console.log(pdfData);
             console.log("PDF Data length:", pdfData.length);
             var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
             emailModal.show();
@@ -122,7 +123,7 @@ $(document).ready(function () {
             alert('Error generating PDF');
         });
 
-        emailModal.hide();
+       // emailModal.hide();
 
     });
 
