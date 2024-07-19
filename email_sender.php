@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pdf_content = str_replace('data:application/pdf;filename=generated.pdf;base64,', '', $pdf_data);
     $pdf_content = base64_decode($pdf_content);
 
-    $subject = "Cost estimates from Velile Tinto Cape - no template4";
+    $subject = "Cost estimates from Velile Tinto Cape";
     $message = "Hi there. Please find attached cost estimates";
 
     if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
@@ -85,23 +85,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
 
-// Create a temporary file
-    
 
-
-    // Generate a simple PDF
-    // $pdf = new FPDF();
-    // $pdf->AddPage();
-    // $pdf->SetFont('Arial', 'B', 16);
-    // $pdf->Cell(40, 10, 'Hello World!');
-    // $pdf_content = $pdf->Output('S');
 
     // Create a SendGrid mail object
     $email = new \SendGrid\Mail\Mail();
     $email->setFrom("francois.b.fourie@gmail.com", "Francois Fourie");
     $email->setSubject($subject);
     $email->addTo($to);
-    $email->addContent("text/html", "<html><body><h3>www</h3><p>yyyy</p> <br> </body></html>");
+    $email->setTemplateId("d-fffe17666e704d7084e6ad4b5a972785");
+  //  $email->addContent("text/html", "<html><body><h3>www</h3><p>yyyy</p> <br> </body></html>");
 
     // Attach the PDF
     $email->addAttachment(

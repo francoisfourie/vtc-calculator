@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $pdf_content = str_replace('data:application/pdf;base64,', '', $pdf_data);
 
     //$subject = htmlspecialchars(strip_tags($_POST['subject'] ?? ''), ENT_QUOTES, 'UTF-8');
-    $subject = "Cost estimates from Velile Tinto Cape - no template";
+    $subject = "Cost estimates from Velile Tinto Cape";
     $message = "Hi there. Please find attached cost estimates"; //htmlspecialchars(strip_tags($_POST['message'] ?? ''), ENT_QUOTES, 'UTF-8');
     //$message = htmlspecialchars(strip_tags($_POST['message'] ?? ''), ENT_QUOTES, 'UTF-8');
 
@@ -105,14 +105,14 @@ $pdf_content = base64_encode($minimal_pdf);
         ],
         'from' => ['email' => 'francois.b.fourie@gmail.com'],
         "subject" => $subject,
-        'content' => [
-            [
-                "type" => "text/html",
-                "value" => "<html><body><h3>www</h3><p>xxxx</p> <br> </body></html>"
-                //"value" => ""
-            ]
-        ],
-       // "template_id" => "d-fffe17666e704d7084e6ad4b5a972785",
+        // 'content' => [
+        //     [
+        //         "type" => "text/html",
+        //         "value" => "<html><body><h3>www</h3><p>xxxx</p> <br> </body></html>"
+        //         //"value" => ""
+        //     ]
+        // ],
+        "template_id" => "d-fffe17666e704d7084e6ad4b5a972785",
         "attachments" => [
             [
                 "content" => base64_encode($pdf_content),
