@@ -92,12 +92,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Validate and sanitize inputs
     $to = filter_var($_POST['to'], FILTER_SANITIZE_EMAIL);
+    $pdf_data = $_POST['pdf'] ?? '';
+    $pdf_content = str_replace('data:application/pdf;base64,', '', $pdf_data);
+
     //$subject = htmlspecialchars(strip_tags($_POST['subject'] ?? ''), ENT_QUOTES, 'UTF-8');
     $subject = "Cost estimates from Velile Tinto Cape";
     $message = "Hi there. Please find attached cost estimates"; //htmlspecialchars(strip_tags($_POST['message'] ?? ''), ENT_QUOTES, 'UTF-8');
     //$message = htmlspecialchars(strip_tags($_POST['message'] ?? ''), ENT_QUOTES, 'UTF-8');
 
-    $image = $_POST['image']; // Base64 image data
+    //$image = $_POST['image']; // Base64 image data
 
     if (!filter_var($to, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
@@ -158,13 +161,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         "template_id" => "d-fffe17666e704d7084e6ad4b5a972785",
         "attachments" => [
             [
-                "content" => str_replace('data:image/png;base64,', '', $image),
-                "type" => "image/png",
-                "filename" => "estimateImage.png",
+                "content" => base64_encode($pdf_content),
+                "type" => "application/pdf",
+                "filename" => "estimate.pdf",
                 "disposition" => "attachment",
-                "content_id" => "estimateImage"
+                "content_id" => "estimatePDF"
             ]
         ]
+        // "attachments" => [
+        //     [
+        //         "content" => str_replace('data:image/png;base64,', '', $image),
+        //         "type" => "image/png",
+        //         "filename" => "estimate.png",
+        //         "disposition" => "attachment",
+        //         "content_id" => "estimateImage"
+        //     ]
+        //]
     ];
     
     $ch = curl_init($url);
@@ -203,12 +215,14 @@ $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
 if ($response === false) {
     $error_message = curl_error($ch);
+    error_log("cURL Error: " . $error_message);
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'cURL Error: ' . $error_message]);
 } else if ($status_code == 202) {
-    echo json_encode(['success' => true]);
+    echo json_encode(['success' => true, 'message' => 'Email sent successfully']);
 } else {
-    http_response_code(500);
+    error_log("SendGrid API Error. Status code: " . $status_code . ", Response: " . $response);
+    http_response_code($status_code);
     echo json_encode(['success' => false, 'message' => 'Failed to send email. Status code: ' . $status_code . ', Response: ' . $response]);
 }
 
