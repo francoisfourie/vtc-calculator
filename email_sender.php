@@ -30,9 +30,9 @@ loadEnv(__DIR__ . '/.env');
 $SENDGRID_API_KEY = getenv('SENDGRID_API_KEY');
 
 // Include the SendGrid library files
-require_once 'send-grid\sendgrid-php.php';
+require_once 'send-grid/sendgrid-php.php';
 // Include the FPDF library files
-require_once 'fpdf\fpdf.php';
+require_once 'fpdf/fpdf.php';
 
 // CSRF Protection
 if (!isset($_SESSION['csrf_token'])) {
