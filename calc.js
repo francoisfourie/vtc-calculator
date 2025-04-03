@@ -1,5 +1,13 @@
 $(document).ready(function () {
 
+    let csrfToken = '';
+    let capturedImageData = null;
+
+    // Fetch CSRF token when the page loads
+    $.get('email_sender.php', function(data) {
+        csrfToken = JSON.parse(data).csrf_token;
+    });
+    
     if ($(window.parent)[0] !== window) {
         // The page is running inside an iframe
         console.log("Page is running inside an iframe.");
@@ -10,7 +18,181 @@ $(document).ready(function () {
         //$('#topbar').removeClass("d-none").addClass("d-flex");
     }
 
+    function captureToPDF() {
+        return new Promise((resolve, reject) => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+    
+            const content = document.getElementById("maintab");
+    
+            // Fetch the HTML template
+            fetch('pdf_template.html')
+                .then(response => response.text())
+                .then(template => {
+                    // Create a temporary div to hold the template
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = template;
+    
+                    // Find the content div in the template
+                    const contentDiv = tempDiv.querySelector('.content');
+                    if (contentDiv) {
+                        // Insert the captured content into the template
+                        contentDiv.innerHTML = content.innerHTML;
+                    }
+    
+                    // Generate PDF from the modified template
+                    doc.html(tempDiv, {
+                        callback: function (doc) {
+                            // Check the number of pages and remove extra pages
+                            const totalPages = doc.internal.getNumberOfPages();
+                            if (totalPages > 1) {
+                                for (let i = totalPages; i > 1; i--) {
+                                    doc.deletePage(i);
+                                }
+                            }
+    
+                            // Resolve the promise with the PDF document
+                            resolve(doc);
+                        },
+                        x: 10,
+                        y: 10,
+                        width: 190, // Adjust as needed
+                        windowWidth: 1000 // Use a fixed width for consistency
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading template:', error);
+                    reject(error);
+                });
+        });
+    }
+    
+   
+    $(document).on('click', '#captureAndEmail', function() {
+      
+        captureToPDF().then(pdf => {
+            const pdfData = pdf.output('datauristring');
+            
+            console.log("PDF Data length:", pdfData.length);
+            var emailModal = new bootstrap.Modal(document.getElementById('emailModal'));
+            emailModal.show();
+    
+            $("#sendEmailBtn").click(function() {
+                const recipientEmail = $('#recipientEmail').val();
+                if (!recipientEmail) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+                $('#emailModal').modal('hide');
+                $.ajax({
+                    url: 'email_sender.php',
+                    method: 'POST',
+                    data: {
+                        csrf_token: csrfToken,
+                        to: recipientEmail,
+                        subject: 'PDF Capture',
+                        message: 'Please find the PDF capture attached.',
+                        pdf: pdfData
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        if (response.success) {
+                            console.log('Email sent successfully');
+                           // alert('Email sent successfully!');
+                            
+                        } else {
+                            console.error('Failed to send email:', response.message);
+                            alert('Failed to send email: ' + response.message);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('AJAX error:', status, error);
+                        $('#emailModal').modal('hide');
+                        alert('An error occurred while sending the email.');
+                        
+                    }
+                });
+            });
+        }).catch(error => {
+            console.error('Error generating PDF:', error);
+            alert('Error generating PDF');
+        });
 
+       // emailModal.hide();
+
+    });
+
+    // $("#sendEmailBtn").click(function() {
+    //     alert('2');
+    //     const recipientEmail = $('#recipientEmail').val();
+    //     if (!recipientEmail) {
+    //         alert('Please enter a valid email address.');
+    //         return;
+    //     }
+
+    //     $.ajax({
+    //         url: 'email_sender.php',
+    //         method: 'POST',
+    //         data: {
+    //             csrf_token: csrfToken,
+    //             to: recipientEmail,
+    //             image: capturedImageData
+    //         },
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             if (response.success) {
+    //                 console.log('Email sent successfully');
+    //                 $('#emailModal').modal('hide');
+    //                 alert('Email sent successfully!');
+    //             } else {
+    //                 console.error('Failed to send email:', response.message);
+    //                 alert('Failed to send email: ' + response.message);
+    //             }
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.error('AJAX error:', status, error);
+    //             alert('An error occurred while sending the email.');
+    //         }
+    //     });
+
+    //     var emailModal = bootstrap.Modal.getInstance(document.getElementById('emailModal'));
+    //         if (emailModal) {
+    //             emailModal.hide();
+    //         }
+
+    // });
+    
+    $(document).on('click', '#captureAndWhatsApp', function() {
+        captureToPDF().then(pdf => {
+            // Always save the PDF for testing purposes
+            pdf.save("vtc.pdf");
+    
+            if (navigator.share) {
+                const pdfBlob = pdf.output('blob');
+                navigator.share({
+                    files: [new File([pdfBlob], 'vtc.pdf', { type: 'application/pdf' })],
+                    title: 'VTC Estimate',
+                    text: 'VTC Estimate'
+                }).then(() => console.log('Shared successfully'))
+                  .catch((error) => console.error('Error sharing:', error));
+            } else {
+                // Fallback for devices that don't support Web Share API
+                alert("Your device doesn't support direct sharing. The PDF has been saved, you can share it manually.");
+            }
+        }).catch(error => {
+            console.error('Error generating PDF:', error);
+            alert('Error generating PDF');
+        });
+    });
+
+  
+        // To handle the close button and top-right (x) button:
+        $(document).on('click', '[data-bs-dismiss="modal"]', function() {
+            var emailModal = bootstrap.Modal.getInstance(document.getElementById('emailModal'));
+            if (emailModal) {
+                emailModal.hide();
+            }
+        });
 })
 
 // transfer
@@ -21,39 +203,62 @@ function calculateTransfer(event) {
 
     var data = getFees(tranval);
 
+    //from sheet, exclude VAT
+    var tf = parseInt(data.transfer_duty)
+    var dof = parseInt(data.deeds_office_charge)
+
     var af = data.fee
     var ps = 350.00
 
-    var SCandFS = 85.00 //new
-    var Transfee = 350.00 //new
+    var SCandFS = 100.00 //new
+    var Transfee = 375.00 //FF new 05/07/2024
     var ratesclearcert = 80.00 //new
-    var fica = 250.00  //new
+    var fica = 800.00  //FF new 05/07/2024
     var dgf = 607.00
     var erf = 1000.00
     var pp = 950.00
-    var subtotal = af + ps  + dgf + erf + pp + SCandFS + Transfee + fica
+    var etdf = 325.00 //FF new 05/07/2024
+
+    var payverlexis = 225;
+    var accverfee = 17.5;
+    var elecfacfee = 625;
+
+
+    var subtotal = af + ps  + dgf + erf + pp + SCandFS + Transfee + fica + ratesclearcert + etdf + payverlexis + accverfee + elecfacfee;
+
     var vatcalc = (15 / 100) * subtotal
     var vat = vatcalc
-    var etdf = 300.00
-    var tf = parseInt(data.transfer_duty)
-    var dof = parseInt(data.deeds_office_charge)
-    var tc = subtotal + vatcalc + dof + etdf + tf + ratesclearcert
+    
+    
+    var tc = subtotal + vatcalc + dof + tf 
 
     var total = tc
 
     setResult(
         `
-            
             <div style="overflow-x:auto;" class="result">
-           <div class="form-header bg-secondary text-white py-2 px-3 rounded">
-                <h6 class="h6 m-0">Transfer costs on R${numberWithCommas(tranval)}</h6>
-            </div>
-            
-            
+            <div class="form-header bg-secondary text-white py-2 px-3 rounded">
+            <h6 class="h6 m-0">Transfer costs on R${numberWithCommas(tranval)}</h6>
+        </div>
+                        
 <hr/>
-            <table class="table table-striped responsive-font-table">
+        <table class="table responsive-font-table">
+        <tr >
+        <td colspan="2" > <b>GOVERNMENT COSTS </b> </td>
+        </tr>
         <tr>
-        <td>Attorney Fees</td>
+        <td>Deeds Office Fees</td>
+        <td  >R${numberWithCommas(dof)}</td>
+        </tr>
+        <tr>
+        <td>Transfer Duties</td>
+        <td  >R${numberWithCommas(tf)}</td>
+        </tr>
+        <tr>
+        <td colspan="2" > <b>ATTORNEYS COSTS </b> </td>
+        </tr>
+        <tr>
+        <td>Attorney Fee</td>
         <td  >R${numberWithCommas(af)}</td>
         </tr>
         <tr>
@@ -85,10 +290,7 @@ function calculateTransfer(event) {
         <td>Transfer Duty Submission Fee</td>
         <td  >R${numberWithCommas(Transfee)}</td>
         </tr>
-        <tr>
-        <td>VAT</td>
-        <td  >R${numberWithCommas(vat)}</td>
-        </tr>
+        
         <tr>
         <td>Rates Clearance Certificate Fee</td>
         <td  >R${numberWithCommas(ratesclearcert)}</td>
@@ -96,16 +298,37 @@ function calculateTransfer(event) {
         <tr>
         <td>Electronic Transfer Duty Fee</td>
         <td  >R${numberWithCommas(etdf)}</td>
-        </tr>       
+        </tr> 
+        
         <tr>
-        <td>Deeds Office Fees</td>
-        <td  >R${numberWithCommas(dof)}</td>
+        <td>Payment verification via Lexis Pay</td>
+        <td>R${numberWithCommas(payverlexis)}</td>
         </tr>
         <tr>
-        <td>Transfer Duties</td>
-        <td  >R${numberWithCommas(tf)}</td>
+
+        <tr>
+        <td>Account verification and payment fee</td>
+        <td>R${numberWithCommas(accverfee)}</td>
         </tr>
         <tr>
+
+        <tr>
+        <td>Electronic Facilitation Fee</td>
+        <td >R${numberWithCommas(elecfacfee)}</td>
+        </tr>
+        <tr>
+
+        <tr >
+        <td colspan = "2"></td>
+        
+      </tr>
+
+        <tr >
+    <td>VAT</td>
+    <td>R${numberWithCommas(vat)}</td>
+  </tr>
+
+        <tr class="table-secondary">
         <td><b>Total</b></td>
         <td  ><b>R${numberWithCommas(total)}</b></td>
         </tr>
@@ -127,14 +350,19 @@ function calculateBondCosts(event) {
     var data = getFees(tranval);
 
     var af = data.fee
+
     var ps = 375.00
-    var dgf = 520.00
-    var eff = 1150.00
+    var dgf = 1550.00 //FF New 05/07/2024
+    var eff = 1000.00 //FF New 05/07/2024
     var pp = 950.00
     var fica = 250.00
-    var subtotal = af + ps + dgf + eff + pp + fica
-    var vatcalc = (15 / 100) * subtotal
+    var dosearchfee = 545;
+
+    var subtotal = af + ps + dgf + eff + pp + fica + dosearchfee
+    var vatcalc = (15 / 100) * subtotal;
+
     var vat = vatcalc
+
     var dof = parseInt(data.deeds_office_charge)
     var tc = subtotal + vatcalc + dof
 
@@ -149,10 +377,21 @@ function calculateBondCosts(event) {
                 <h6 class="h6 m-0">Bond costs on R${numberWithCommas(tranval)}</h6>
             </div>
             
-        <hr/>
-            <table  class="table table-striped responsive-font-table">
+       
+            <table class="table responsive-font-table">
+            <tr >
+            <td colspan="2" > <b>GOVERNMENT COSTS </b> </td>
+            </tr>
+            <tr>
+            <td>Deeds Office Fees</td>
+            <td  >R${numberWithCommas(dof)}</td>
+            </tr>
         <tr>
-        <td>Attorney Fees</td>
+        <tr>
+        <td colspan="2" > <b>ATTORNEYS COSTS </b> </td>
+        </tr>
+
+        <td>Attorney Fee</td>
         <td  >R${numberWithCommas(af)}</td>
         </tr>  
         <tr>
@@ -176,15 +415,20 @@ function calculateBondCosts(event) {
         <td  >R${numberWithCommas(fica)}</td>
         </tr>
         <tr>
-        <td>VAT</td>
-        <td  >R${numberWithCommas(vat)}</td>
+        <td>Deeds Office search Fee</td>
+        <td  >R${numberWithCommas(dosearchfee)}</td>
         </tr>
+        <tr >
+        <td colspan = "2"></td>
         
-        <tr>
-        <td>Deeds Office Fees</td>
-        <td  >R${numberWithCommas(dof)}</td>
-        </tr>
-        <tr>
+      </tr>
+
+        <tr >
+    <td>VAT</td>
+    <td>R${numberWithCommas(vat)}</td>
+  </tr>
+
+        <tr class="table-secondary">
         <td><b>Total</b></td>
         <td  ><b>R${numberWithCommas(total)}</b></td>
         </tr>
@@ -301,6 +545,8 @@ function openTab(evt, cityName) {
     var i, tabcontent, tablinks;
 
    $("#result").html("")
+   $("#footernote").html("")
+   $("#actionSection").html("");
 
     // Get all elements with class="tabcontent" and hide them
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -356,6 +602,7 @@ function getFees(bondAmount) {
     // Handle cases where bond amount is less than the minimum bond amount
     if (bondAmount < minBondAmount) {
         issue("Please insert an amount more than R" + numberWithCommas(minBondAmount));
+        return;
         // return {
         //     fee: feesData.fees[0].fee,
         //     vat: feesData.fees[0].vat,
@@ -376,6 +623,7 @@ function getFees(bondAmount) {
         //     transfer_duty: feesData.fees[lastEntryIndex].transfer_duty
         // };
         issue("Please insert an amount less than R" + numberWithCommas(maxBondAmount));
+        return;
     }
 
     let closestLowerBound = -Infinity;
@@ -419,7 +667,7 @@ function getFees(bondAmount) {
             }
         }
     }
-
+    
     return closestFees; // Return closest fees found
 }
 
@@ -428,33 +676,44 @@ function getFees(bondAmount) {
 
 
 function getCostsFromFile() {
-
+    var timestamp = new Date().getTime(); // Get current timestamp
     var data = $.ajax({
         type: 'GET',
-        url: `costs.json`,
+        url: `costs.json?t=${timestamp}`, // Append timestamp as a query parameter
         async: false,
         dataType: "json",
+        cache: false, // Disable jQuery's ajax cache
         success: function (data) {
             return data;
         },
         error: function (xhr, type, exception) {
-            issue("Error reading from cost file")
+            issue("Error reading from cost file");
         }
     });
 
     if (data.status === 200) {
-        json = data.responseJSON
+        json = data.responseJSON;
         return json;
     }
-
 }
 
 
 function setResult(value)
 {
     $("#result").html(value);
+    $("#footernote").html(`<p class="responsive-font-table text-secondary" style=" font-style: italic;">
+    <i>Please note that these fees are provided as a general guide and do not represent an exhaustive list of potential charges. For a precise calculation of all applicable costs, we recommend contacting our offices to request a detailed, formal quote.</i> <br>
+    <i>It's important to note that your transaction may incur additional costs and disbursements beyond the fees listed above. These can include expenses for obtaining rates and levies information, Transfer Duty, Homeowners Association figures, FICA compliance, Conveyancers Certificates, Powers of Attorney, and various undertakings. Such extra expenses are not included in the initial estimate and will be added to the total cost. We recommend factoring in these potential additional expenses when budgeting for your transaction.</i>
+    </p>`)
    // $("#result").addClass("light-border");
     $(".tabcontent").addClass("d-none");
+    $("#actionSection").html(`<div class="container light-border"> <button type="button" class="btn btn-secondary" id="captureAndEmail">
+    <i class="fas fa-envelope"></i> Email
+</button>
+<button type="button" class="btn btn-secondary" id="captureAndWhatsApp">
+    <i class="fas fa-download"></i> Download
+</button></div>`);
+
 }
 
 
@@ -469,6 +728,11 @@ const showAlert = (message, type) => {
     ].join('')
 
     alertPlaceholder.append(wrapper)
+}
+
+
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 
 
