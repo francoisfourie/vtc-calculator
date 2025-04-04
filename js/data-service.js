@@ -1,4 +1,6 @@
 // Data fetching and processing functions
+let loggingEnabled = true;
+
 function getFees(bondAmount) {
     const feesData = getCostsFromFile();
     if (!feesData) return null;
@@ -22,18 +24,30 @@ function getFees(bondAmount) {
         }
     }
 
+    if (loggingEnabled) {
+        console.log(`Minimum bond amount: R${numberWithCommas(minBondAmount)}`);
+        console.log(`Maximum bond amount: R${numberWithCommas(maxBondAmount)}`);
+    }
+
     // Handle cases where bond amount is less than the minimum bond amount
     if (bondAmount < minBondAmount) {
+        if (loggingEnabled) {
+            console.log(`Bond amount (R${numberWithCommas(bondAmount)}) is less than the minimum bond amount (R${numberWithCommas(minBondAmount)})`);
+        }
         issue("Please insert an amount more than R" + numberWithCommas(minBondAmount));
         return null;
     }
 
     // Handle cases where bond amount is greater than the maximum bond amount
     if (bondAmount > maxBondAmount) {
+        if (loggingEnabled) {
+            console.log(`Bond amount (R${numberWithCommas(bondAmount)}) is greater than the maximum bond amount (R${numberWithCommas(maxBondAmount)})`);
+        }
         issue("Please insert an amount less than R" + numberWithCommas(maxBondAmount));
         return null;
     }
 
+    let totalFees = 0;
     let closestLowerBound = -Infinity;
     let closestFees = null;
 
@@ -44,6 +58,13 @@ function getFees(bondAmount) {
             const upperBound = parseFloat(range[1].replace(/,/g, '')) || lowerBound;
 
             if (bondAmount >= lowerBound && bondAmount <= upperBound) {
+                if (loggingEnabled) {
+                    console.log(`Extracted fee: R${numberWithCommas(feeEntry.fee)}`);
+                    console.log(`Extracted VAT: R${numberWithCommas(feeEntry.vat)}`);
+                    console.log(`Extracted total: R${numberWithCommas(feeEntry.fee_plus_vat)}`);
+                    console.log(`Extracted deeds office charge: R${numberWithCommas(feeEntry.deeds_office_charge)}`);
+                    console.log(`Extracted transfer duty: R${numberWithCommas(feeEntry.transfer_duty)}`);
+                }
                 return {
                     fee: feeEntry.fee,
                     vat: feeEntry.vat,
@@ -64,6 +85,7 @@ function getFees(bondAmount) {
         } else {
             const amount = parseFloat(feeEntry.bond_amount_range.replace(/,/g, ''));
             if (bondAmount >= amount && amount > closestLowerBound) {
+
                 closestLowerBound = amount;
                 closestFees = {
                     fee: feeEntry.fee,
@@ -76,7 +98,29 @@ function getFees(bondAmount) {
         }
     }
     
-    return closestFees; // Return closest fees found
+    if (closestFees) {
+
+            //Overwrite transfer_duties for zero rated transactions
+        if(bondAmount < 1210000)
+        {
+            console.log("BondAmount less than threshold");
+            closestFees.transfer_duty = 0;            
+        }
+
+        if (loggingEnabled) {
+            console.log(`Closest matching fees:`);
+            
+            console.log(`- Fee: R${numberWithCommas(closestFees.fee)}`);
+            console.log(`- VAT: R${numberWithCommas(closestFees.vat)}`);
+            console.log(`- Total: R${numberWithCommas(closestFees.total)}`);
+            console.log(`- Deeds office charge: R${numberWithCommas(closestFees.deeds_office_charge)}`);
+            console.log(`- Transfer duty: R${numberWithCommas(closestFees.transfer_duty)}`);
+        }
+        return closestFees;
+    }
+    
+
+    return null;
 }
 
 function getCostsFromFile() {

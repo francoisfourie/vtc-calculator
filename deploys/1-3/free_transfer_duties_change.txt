@@ -1,0 +1,5 @@
+0% Transfer Duty on all properties less than 1 210 000
+all files under JS
+bond.html
+
+Only a calc change in the data-service.js
